@@ -1,0 +1,43 @@
+\startsection{Miscellaneous}
+
+\subsection*{Anonymous classes}
+
+Anonymous classes are classes that are declared inline. For example, this is a PriorityQueue with a Comparator that was declared inline.
+
+\lstinputlisting[style=display]{general/code/misc_anon1.java}
+
+You can also use lambdas with anonymous classes.
+
+\lstinputlisting[style=display]{general/code/misc_anon2.java}
+
+\subsection*{Checking equality in doubles}
+
+It can be hard to check equality in doubles due to floating point errors. This method will check for equality if floating point errors are possible:
+
+\lstinputlisting[style=display]{general/code/misc_doubleequal.java}
+
+10\textsuperscript{-9} is generally a good value for \lstinline[style=inline]{EPSILON}. Also, most problems involving doubles will tell you how much error two values can have and still be considered equal.
+
+\subsection*{Evaluating polynomials at a point}
+
+Given an array of the coefficients of a polynomial you can find the value of the polynomial evaluated at a number num (ie. P(num), where P(x) is the polynomial). This works by the remainder theorem.
+
+Note that the array of coefficients should be in descending order. If \lstinline[style=display]{P(x) = 3x$^2$ – 2x + 1}, then the array should equal \lstinline[style=display]{\{3, -2, 1\}}.
+
+\subsection*{Useful classes}
+
+ArrayDeque: stacks and queues
+
+BitSet: useful for problems with large bitmasks (max size is $^{2Integer.MAX\_VALUE}$)
+
+Formatter: the JavaDoc lists printf syntax
+
+Line2D: see if lines intersect
+
+LocalDate, LocalTime, LocalDateAndTime: time problems
+
+MathContext and RoundingMode
+
+Pattern: the JavaDoc lists regex syntax
+
+Rectangle2D

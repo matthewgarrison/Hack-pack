@@ -1,0 +1,55 @@
+\documentclass{article}
+
+\newlength\tempindent
+\setlength{\tempindent}{\parindent}
+\setlength{\parindent}{0pt}
+\renewcommand{\indent}{\hspace*{\tempindent}}
+
+\usepackage{multicol, framed, amsmath, graphicx, datetime2, fancyhdr, listings}
+\usepackage[letterpaper, portrait, margin=1in]{geometry}
+\usepackage[parfill]{parskip}
+
+\newcommand{\subscript}[1]{$_{\text{#1}}$}
+\newcommand{\formsep}{\indent \Big\rvert \indent}
+
+\lstdefinestyle{display}{
+	language=Java,
+	basicstyle=\ttfamily,
+	numbers=left,
+	numberstyle=\small,
+	tabsize=4,
+	columns=flexible,
+	showstringspaces=false,
+	showtabs=false,
+	keepspaces
+}
+\lstdefinestyle{inline}{
+	language=Java,
+	basicstyle=\ttfamily,
+	columns=flexible,
+	showstringspaces=false,
+	showtabs=false,
+	keepspaces
+}
+
+
+\newcommand{\thetitle}{Hack Pack}
+\renewcommand*{\addcontentsline}[3]{\addtocontents{#1}{\protect\contentsline{#2}{#3}{}}}
+\renewcommand{\headrulewidth}{0pt}
+\newcommand{\startsection}[1]{\addcontentsline{toc}{section}{#1}\section*{#1}\setcounter{page}{1}\pagestyle{fancy}\fancyhf{}\rhead{#1 \thepage}}
+
+\title{\thetitle}
+\author{Matthew Garrison}
+\date{\today}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+\newpage
+
+\input{general/baseconversion.tex}
+\input{general/binaryternarysearch.tex}
+\input{general/misc.tex}
+
+\end{document}
