@@ -1,2 +1,2 @@
 # Hack-pack
-Repo for my latex hack pack.
+Repo for my LaTeX hack pack.
