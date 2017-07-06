@@ -1,0 +1,26 @@
+\startsection{Pascal's triangle}
+
+\begin{center}
+1 \\
+1 1 \\
+1 2 1 \\
+1 3 3 1 \\
+1 4 6 4 1 \\
+1 5 10 10 5 1
+\end{center}
+
+Pascal’s triangle is a triangular array of the binomial coefficients, that is $(x + y)^n$. The rows (designated by $n$) and columns (designated by $k$) are 0-indexed. So 6 is at row 4, column 2. This is also known as \textit{n choose k} or $\binom{n}{k}$.
+
+Returns the n\textsuperscript{th} row:
+
+\lstinputlisting{general/code/pascalstriangle1.java}
+
+Returns all the rows $\leq$ n:
+
+\lstinputlisting{general/code/pascalstriangle2.java}
+
+Given the n\textsuperscript{th} row of Pascal's triangle (in \inline{coefficients}) and values of a and b (from the expression $(ax + by)^{pow}$), this will give you the coefficients of the expanded binomial expression.
+
+\lstinputlisting{general/code/pascalstriangle3.java}
+
+\newpage

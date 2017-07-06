@@ -1,0 +1,29 @@
+\startsection{Subset sum}
+
+\textit{Runtime: O(sn)}, where s is the sum we want to find in the set of n numbers
+
+Note: \inline{nums} is 1-indexed in these code snippets.
+
+\subsection*{Positive numbers only}
+
+\lstinputlisting{algorithms/code/subsetsum1.java}
+
+If you need to know which numbers were used, change lines 6-7 to:
+
+\lstinputlisting{algorithms/code/subsetsum2.java}
+
+And then you can retrieve which ones were used with this:
+
+\lstinputlisting{algorithms/code/subsetsum3.java}
+
+\subsection*{Positive numbers and negative numbers}
+
+Note: if the set includes only positive numbers, this algorithm will still work. However, if you know the set will be all positive, the previous algorithm is simpler. This version just includes an offset for the negative numbers.
+
+\lstinputlisting{algorithms/code/subsetsum4.java}
+
+The answer is in \inline{memo[numNums][target - negativeSum]}.
+
+We can retrieve the used numbers with the same method, though \inline{t = target - negativeSum} in line \#2.
+
+\newpage

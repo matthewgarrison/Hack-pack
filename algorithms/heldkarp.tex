@@ -1,0 +1,13 @@
+\startsection{Held-Karp algorithm}
+
+Also called the Bellman-Held-Karp algorithm. Uses dynamic programming to solve the Travelling Salesman problem.
+
+Call \inline{TSP(0, 1)}. \inline{memo} has size \inline{[numCities][1 << numCities]}.
+
+\lstinputlisting{algorithms/code/heldkarp1.java}
+
+If you want to reconstruct the path, add another array, path, of the same size as memo. At the end of the method, add \inline{path[pos][bitmask] = best}, where best is the city that results in the lowest answer.
+
+\lstinputlisting{algorithms/code/heldkarp2.java}
+
+\newpage

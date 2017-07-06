@@ -1,0 +1,48 @@
+\startsection{Approaches}
+
+\subsection*{Brute force}
+
+\subsection*{Greedy}
+
+\subsection*{Dynamic programming}
+
+\subsection*{Feasibility}
+
+If the time limit is 5 seconds (ie. most contests), you should not be doing more than 1 billion operations. If the time limit is 30 seconds, you should not be doing more than 10 billion operations.
+
+Secondly, you will get stack overflow if your stack is too large. It varies competition to competition, but you should aim for less than 5000 method calls.
+
+Thirdly, your memory (eg. size of your array) should not exceed 50 million.
+
+\textbf{Permutations}: You should only do permutations if n $<$ 13.
+
+\textbf{Graphs}
+
+Dense graph: E $\approx$ V\textsuperscript{2} \\
+Sparse graph: E $\approx$ V
+
+General matching works on sparse graphs, V $\leq$ 500. \\
+Bipartite matching works on sparse graphs, V $\leq$ 5000. \\
+Floyd-Warshal works on sparse and dense graphs, V $\leq$ 500. \\
+Dijkstra’s works on sparse and dense graphs, V $\leq$ 5000. \\
+Toposort works on sparse graphs, V $\leq$ 100,000.
+
+\textbf{Dynamic programming}
+
+You can find the max amount of memory you’ll use by multiplying the bounds of each component of your state. (eg. For the knapsack problem, this is number of items * the weight limit). If it exceeds 50 million, you can try to save space by removing one item from your state. (eg. You can iterate over the same 1D array in the knapsack problem, instead of using an array that has a row for every item.)
+
+\textbf{2\textsuperscript{n} memory}
+
+Bitmask DP uses 2\textsuperscript{n} memory. For these and other, similar problems, n $\leq$ 25 (usually). If n is greater than that, try cutting the problem in half, and approaching the "center" of the problem from both ends.
+
+(For bitmask DP, the array is declared with size 2\textsuperscript{n}, so that 2\textsuperscript{n-1} can fit into the array.)
+
+\textbf{Ways to speed up a program}
+
+Use a FastScanner and a PrintWriter.
+
+Add all output to a StringBuilder and print it all at once, at the end of the program.
+
+Instead of sorting an ArrayList of custom objects, you can sort by a unique attribute (eg. a String), and hold the rest of the data in a HashMap. (Or use a TreeMap.)
+
+\newpage

@@ -4,31 +4,188 @@
 
 Anonymous classes are classes that are declared inline. For example, this is a PriorityQueue with a Comparator that was declared inline.
 
-\lstinputlisting[style=display]{general/code/misc_anon1.java}
+\lstinputlisting{general/code/misc_anon1.java}
 
 You can also use lambdas with anonymous classes.
 
-\lstinputlisting[style=display]{general/code/misc_anon2.java}
+\lstinputlisting{general/code/misc_anon2.java}
+
+\subsection*{Catalan numbers}
+
+The only Catalan numbers $C_n$ that are odd are those for which $n=2^k-1$. All others are even.
+
+The only prime Catalan numbers are $C_2=2$ and $C_3=5$.
+
+$C = \{1, 1, 2, 5, 14, 42, 132, 429, 1430, 4862, 16796, 58786, 208012, 742900, 2674440, 9694845, 35357670\}$
+
+$$
+    C_n = \frac{1}{n+1}\binom{2n}{n} = \binom{2n}{n} - \binom{2n}{n+1} = \frac{(2n)!}{(n+1)!n!} = \prod_{k=2}^{n} \frac{n+k}{k} = \frac{1}{n+1}\sum_{i=0}^{n}\binom{n}{i}^2 = \int_{0}^{4}x^n\frac{1}{2\pi}\sqrt{\frac{4-x}{x}} dx
+$$
+
+$$C_0 = 1$$
+$$C_{n+1} = \sum_{i=0}^{n}C_i C_{n-i} = \frac{2(2n + 1)}{n+2}C_n$$
+
 
 \subsection*{Checking equality in doubles}
 
 It can be hard to check equality in doubles due to floating point errors. This method will check for equality if floating point errors are possible:
 
-\lstinputlisting[style=display]{general/code/misc_doubleequal.java}
+\lstinputlisting{general/code/misc_doubleequal1.java}
 
-10\textsuperscript{-9} is generally a good value for \lstinline[style=inline]{EPSILON}. Also, most problems involving doubles will tell you how much error two values can have and still be considered equal.
+10\textsuperscript{-9} is generally a good value for \inline{EPSILON}. Also, most problems involving doubles will tell you how much error two values can have and still be considered equal.
+
+\subsection*{Coupon collector's problem}
+
+Suppose there is an urn with n different coupons. What is the probability that more than t sample trials are needed to collect all n coupons? Or, given n coupons, how many coupons do you expect you need to draw with replacement before having drawn each coupon at least once?
+
+Alternatively, how many times do you expect to need to roll an n-sided die in order to have every number come up at least once?
+
+The answer: n * H\subscript{n}, where n is the number of coupons and H\subscript{n} is the n\textsuperscript{th} Harmonic number.
+
+$$H_n = 1 + \frac{1}{2} + \frac{1}{3} + ... + \frac{1}{n} = \sum_{k=1}^n \frac{1}{k}$$
 
 \subsection*{Evaluating polynomials at a point}
 
 Given an array of the coefficients of a polynomial you can find the value of the polynomial evaluated at a number num (ie. P(num), where P(x) is the polynomial). This works by the remainder theorem.
 
-Note that the array of coefficients should be in descending order. If \lstinline[style=display]{P(x) = 3x$^2$ – 2x + 1}, then the array should equal \lstinline[style=display]{\{3, -2, 1\}}.
+Note that the array of coefficients should be in descending order. If \inline{P(x) = 3x\textsuperscript{2} - 2x + 1}, then the array should equal \inline{\{3, -2, 1\}}.
+
+\subsection*{Finding the average of two values}
+
+Obviously, you can do it like this: \inline{int c = (a + b) >> 1;}
+
+However, that can lead to overflows. This will not: \inline{int c = a + ((b - a) >> 1);}
+
+\subsection*{Frame problems}
+
+A frame problem is one where you have to find the consecutive section with the largest value or largest length, while remaining within a constraint (usually a maximum value that the section can be). Also known as a two pointer problem.
+
+To solve one of these problems, you need a startIndex and endIndex. Set them all to zero, and use this for-loop: 
+\inline{for (; endIndex < numValues; endIndex++)}
+
+Within the for-loop, you check if the constraint is still true. If it isn't, you increment startIndex until the constraint is true again.
+
+\subsection*{Hashcodes}
+
+When writing custom classes, you may need to create a \inline{hashCode()} method for your class. Eclipse can help you do this: while your cursor is inside the class you want to create the method for, press Alt+S, then click "Generate hashCode() and equals()".
+
+\subsection*{Infinity}
+
+For a lot of problems, you may wish to define \inline{INFINITY}. A good value for that is \inline{(Integer.MAX\_VALUE / 2) - 5}. This value is sufficiently large that any actual values will not be larger, while still being small enough to not overflow if it is added to itself.
+
+\subsection*{Input and output}
+
+\textbf{Input}
+
+A Scanner that reads from a file: \inline{new Scanner(new File(String filename));}
+
+A BufferedReader that reads from Standard In: \inline{new BufferedReader(new \\InputStreamReader(System.in));}
+
+A BufferedReader that reads from a file: \inline{new BufferedReader(new FileReader(String \\fileName));}
+
+\textbf{Output}
+
+A faster way to print to Standard Out: \inline{new PrintWriter(new BufferedWriter(new \\OutputStreamWriter(System.out)));}
+
+To a file: \inline{new PrintWriter(new BufferedWriter(new FileWriter(String \\fileName)));}
+
+Note: you NEED to call either out.flush() or out.close() (which in turn calls out.flush()) when you're done printing. If you don't, the print statements will not work.
+
+\textbf{Notes}
+
+Reads until end of file (Scanner): \inline{while (scan.hasNext()) \{\}}
+
+Reads until end of file (BufferedReader): \inline{String input; while ((input = br.readLine()) != null) \{\}}
+
+\subsection*{Inputting lines in clockwise order}
+
+If you want to input lines in order, so each one is at a 90-degree angle to the previous, do it like so:
+
+\lstinputlisting{general/code/misc_inputclockwise1.java}
+
+\subsection*{Magic squares}
+
+To solve a 3x3 magic square, add up all the known numbers and divide by two. This is your target number. Then, for every blank square, subtract the sum of the non-blank squares in that row/column/diagonal from the target number to get your answer.
+
+\subsection*{Pigeonhole principle}
+
+The pigeonhole principle states that if $k$ objects are placed into $n$ boxes, then at least one box must hold at least $\lceil \frac{n}{k} \rceil$ objects.
+
+\subsection*{Prime factorization}
+
+For prime factorization, first create the prime sieve. Then for each prime number, repeated divide num by that prime until it is no longer divisible by the current prime.
+
+\subsection*{Pythagorean triple}
+
+A Pythagorean Triple is 3 numbers, a, b, c, such that $a^2 + b^2 = c^2$. For all Pythagorean Triples, there exist positive integers x and y, with x $>$ y, such that:
+
+\begin{itemize}
+    \item $a = x^2 - y^2$
+    \item $b = 2xy$
+    \item $c = x^2 + y^2$
+\end{itemize}
+
+\subsection*{Range sums}
+
+To quickly compute the sum of the values of an array over a range, you can use a running sum array. For each index, the value in the array at the index will be the sum of all the values before that index plus the value in the original array at that index. Using 1-based indexes for the running sum array is better, so that you don’t need a special case for when a = 0.
+
+\lstinputlisting{general/code/misc_rangesum1.java}
+
+Then, to find the sum of the values on the range [a, b]:
+
+\lstinputlisting{general/code/misc_rangesum2.java}
+
+If you want to do this for 2D arrays, use this code to create the running sum array:
+
+\lstinputlisting{general/code/misc_rangesum3.java}
+
+Then, to find the sum of the values in the “rectangle”, where the top left corner is (lowX, lowY) and the bottom right corner is (highX, highY):
+
+\lstinputlisting{general/code/misc_rangesum4.java}
+
+\subsection*{Specific dx and dy arrays}
+
+Starting above the current space and going clockwise, including diagonals.
+
+\lstinputlisting{general/code/misc_specificdxdy1.java}
+
+The movements for a knight in chess, following this clockwise pattern:
+
+\lstinputlisting{general/code/misc_specificdxdy2.java}
+
+\subsection*{Solve a problem with time intervals}
+
+If you’re given a series of overlapping times (ie. start and end times), and have to find something (eg. location of the most overlaps), make a Time class, with an \inline{isStart} boolean, a \inline{time} int, and one or more values for that time interval, depending on the problem. Implement Comparable and sort it according to \inline{time}, with starts coming before ends in the event of a tie.
+
+Fill an ArrayList with the Time objects, sort it, and run through it.
+
+\subsection*{Tower of Hanoi}
+
+The minimum number of moves required to solve a Tower of Hanoi with $n$ disks is $2^n - 1$.
+
+To move n disks from peg A to peg C:
+
+\begin{itemize}
+    \item Move n-1 discs from A to B. This leaves disc n alone on peg A.
+    \item Move disk n from A to C
+    \item Move n-1 discs from B to C so they sit on disc n.
+\end{itemize}
+
+To print out the moves of the 3 disk variant:
+
+\lstinputlisting{general/code/misc_tower1.java}
+
+\subsection*{Trailing zeroes of a factorial}
+
+Finds the number of trailing zeroes of $n!$.
+
+\lstinputlisting{general/code/misc_trailingfact1.java}
 
 \subsection*{Useful classes}
 
 ArrayDeque: stacks and queues
 
-BitSet: useful for problems with large bitmasks (max size is $^{2Integer.MAX\_VALUE}$)
+BitSet: useful for problems with large bitmasks
 
 Formatter: the JavaDoc lists printf syntax
 
@@ -41,3 +198,5 @@ MathContext and RoundingMode
 Pattern: the JavaDoc lists regex syntax
 
 Rectangle2D
+
+\newpage

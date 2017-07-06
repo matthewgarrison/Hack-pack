@@ -1,0 +1,1 @@
+int ans = runSum[b] - runSum[a-1];

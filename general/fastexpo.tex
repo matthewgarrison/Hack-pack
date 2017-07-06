@@ -1,0 +1,19 @@
+\startsection{Fast exponentiation}
+
+\textit{Runtime: O(log(n) * operation)} \\
+\indent	Since the multiplication of numbers is \textit{O(1)}, fast expo of numbers is \textit{O(log(n))} \\
+\indent Since matrix multiplication is \textit{O(n\textsuperscript{3})}, fast expo of matrices is \textit{O(n\textsuperscript{3}log(n))}
+
+NOTE: if n isn't guaranteed to be positive, you need to rewrite the method to be \inline{double \\ fastExpo(double x, int n)} and then add \inline{if (n < 0) return fastExpo(1.0/x, -n);} to the beginning of the method.
+
+$x^n$ can be rewritten as $(x^2)^{\frac{n}{2}}$ if $n$ is even, and as $x (x^2)^{\frac{n-1}{2}}$ if $n$ is odd. Therefore, we can use this method to quickly calculate exponents:
+
+\lstinputlisting{general/code/fastexpo1.java}
+
+This is an iterative version that’s a little faster:
+
+\lstinputlisting{general/code/fastexpo2.java}
+
+If we want to calculate $x^n \mod m$, add \inline{x \%= m;} after line 2, change line 5 to \inline{result = (result * x) \% m;} and change line 8 to \inline{x = (x * x) \% m;}.
+
+\newpage

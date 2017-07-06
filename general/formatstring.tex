@@ -1,0 +1,46 @@
+\startsection{Formatting strings}
+
+All of this is contained in the \inline{Formatter} Javadoc. There are also more flags, more conversion characters, and specific details.
+
+Format specifiers follow this format: \\
+\inline{\%[argument index][flags][width][.precision]conversion-character}
+
+\textbf{Flags}
+
+\inline{-} : Padding occurs to the right of the output instead of the left (width must be specified) \\
+\inline{0} : Numeric values are zero-padded (width must be specified) \\
+\inline{,} : Numeric values include commas
+
+\textbf{Width}
+
+The minimum number of characters to be written to the output. Includes commas and decimal points if the output is numeric. (Note: if the width exceeds the length of the argument, and the '0' flag is not used, spaces will be used to pad.)
+
+\textbf{Precision}
+
+For general argument types, the precision is the maximum number of characters to be written to the output. The precision is applied before the width; thus the output will be truncated to precision characters even if the width is greater than the precision. If the precision is not specified, then there is no explicit limit on the number of characters.
+
+For the floating-point conversions 'e', 'E', and 'f' the precision is the number of digits after the decimal separator (the default is 6 if not specified). If the conversion is 'g' or 'G', then the precision is the total number of digits in the resulting magnitude after rounding. If the conversion is 'a' or 'A', then the precision must not be specified.
+
+For character, integral, and date/time argument, the precision is not applicable. If a precision is provided, an exception will be thrown.
+
+\textbf{Misc}
+
+You can use \inline{printf("\%.0f", num)} to round to the nearest integer.
+
+A newline is written as \inline{\%n} or \inline{\textbackslash n}. A percent sign is written as \inline{\%\%} or \inline{\textbackslash\%}.
+
+Pad a String with characters other than space: \inline{String.format("\%10s", str).replace(' ', \\'*');}.
+
+String of n repetitions of a given character or String (currently n asterisks): \inline{String.format("\%" + n + "s", "").replace(' ', '*');}.
+
+Pad base conversions: \inline{String.format("\%" + len + "s", Integer.toString(n, r)).\\replace(' ', '0');}
+
+If you want to print an entire decimal, regardless of its length (ie. print 1.2, 4.578, and 0.13456), convert it to a String before printing.
+
+Uses HALF\_UP rounding by default, and uses leading zeroes.
+
+\textbf{Formatting decimals with DecimalFormat}
+
+Check the DecimalFormat Javadoc. Uses HALF\_EVEN rounding by default.
+
+\newpage

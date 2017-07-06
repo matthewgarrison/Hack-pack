@@ -5,14 +5,19 @@
 \setlength{\parindent}{0pt}
 \renewcommand{\indent}{\hspace*{\tempindent}}
 
-\usepackage{multicol, framed, amsmath, graphicx, datetime2, fancyhdr, listings}
+\usepackage{multicol, framed, amsmath, graphicx, datetime2, fancyhdr, listings, courier, accsupp}
 \usepackage[letterpaper, portrait, margin=1in]{geometry}
 \usepackage[parfill]{parskip}
 
 \newcommand{\subscript}[1]{$_{\text{#1}}$}
 \newcommand{\formsep}{\indent \Big\rvert \indent}
+\renewcommand{\thelstnumber}{
+    \protect\BeginAccSupp{ActualText={}}\arabic{lstnumber}\protect\EndAccSupp{}
+}
+\newcommand*{\myfont}{\fontfamily{pcr}\selectfont}
+\DeclareTextFontCommand{\inline}{\myfont}
 
-\lstdefinestyle{display}{
+\lstset{
 	language=Java,
 	basicstyle=\ttfamily,
 	numbers=left,
@@ -23,15 +28,6 @@
 	showtabs=false,
 	keepspaces
 }
-\lstdefinestyle{inline}{
-	language=Java,
-	basicstyle=\ttfamily,
-	columns=flexible,
-	showstringspaces=false,
-	showtabs=false,
-	keepspaces
-}
-
 
 \newcommand{\thetitle}{Hack Pack}
 \renewcommand*{\addcontentsline}[3]{\addtocontents{#1}{\protect\contentsline{#2}{#3}{}}}
@@ -48,8 +44,28 @@
 
 \newpage
 
+\input{general/approaches.tex}
 \input{general/baseconversion.tex}
 \input{general/binaryternarysearch.tex}
+\input{general/fastexpo.tex}
+\input{general/formatstring.tex}
 \input{general/misc.tex}
+\input{general/pascalstriangle.tex}
+\input{general/primalityandsieves.tex}
+
+\input{algorithms/dijkstra.tex}
+\input{algorithms/floydwarshall.tex}
+\input{algorithms/heldkarp.tex}
+\input{algorithms/kruskalsandprims.tex}
+\input{algorithms/subsetsum.tex}
+
+\input{datastructs/builtin.tex}
+\input{datastructs/disjointset.tex}
+\input{datastructs/edge.tex}
+\input{datastructs/fraction.tex}
+\input{datastructs/vector.tex}
+\input{datastructs/vertex.tex}
+
+\input{math/matrices.tex}
 
 \end{document}
