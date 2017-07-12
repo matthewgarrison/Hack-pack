@@ -41,8 +41,30 @@ $\phi (n)$, or $\Phi (n)$ or $\varphi (n)$, counts the positive integers up to a
 Properties:
 \begin{itemize}
     \item If $gcd(n, m) = 1$, then $\phi (nm) = \phi (n) \phi (m)$
+    \item $\phi (nm) = \phi (n) \phi (m) \frac{d}{\phi (d)}$, where $d = gcd(n, m)$
+    
+    Special cases:
+    \begin{itemize}
+        \item 
+        $\phi (2m) = 
+        \begin{cases}
+            2 \phi (m) &\quad\text{if } m \text{ is even} \\
+            \phi (m) &\quad\text{if } m \text{ is odd}
+        \end{cases}$
+        \item $\phi (n^m) = n^{m-1} \phi(n)$
+    \end{itemize}
     \item If $p$ is prime, $\phi (p) = p-1$, for $p < 10^{20}$
     \item If $n$ is even, $\phi (2n) = 2 \phi(n)$
+    \item If $a$ and $n$ are coprime, $a^{\phi (n)} \equiv 1 \mymod{n}$
+    \item If $p$ is prime and $k \geq 1$, then
+    $$\phi (p^k) = p^k - p^{k-1} = p^{k-1} (p - 1) = p^k (1 - \frac{1}{p})$$
+    \item Divisor sum:
+    $$\sum_{d \divides n} \phi(d) = n$$
+    \item $a \divides b \implies \phi(a) \divides \phi(b)$
+    \item $n \divides \phi(a^n - 1)$, for $a, n > 1$
+    \item $\phi (lcm(n, m)) \phi( gcd(n, m)) = \phi (n) \phi (m)$
+    \item $\phi (n)$ is even for $n \geq 3$. Moreover, if $n$ has $r$ distinct odd prime factors, $2^r \divides \phi(n)$.
+    \item 
 \end{itemize}
 
 \subsection*{Finding the average of two values}
