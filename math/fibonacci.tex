@@ -1,0 +1,63 @@
+\startsection{Fibonacci sequence}
+
+$F = \{0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610\}$
+
+If $5x^2 + 4$ or $5x^2 - 4$ is a perfect square, then x is part of the Fibonacci sequence.
+
+You can use matrices to calculate the Fibonacci sequence. This matrix representation gives the following closed expression for the Fibonacci numbers:
+
+\begin{equation*}
+    \begin{bmatrix}
+        F_{n+1} & F_n \\
+        F_n & F_{n-1}
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        1 & 1 \\
+        1 & 0
+    \end{bmatrix}
+    ^n
+    \formsep
+    \begin{bmatrix}
+        F_n \\
+        F_{n-1}
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        1 & 1 \\
+        1 & 0
+    \end{bmatrix}
+    \begin{bmatrix}
+        F_{n-1} \\
+        F_{n-2}
+    \end{bmatrix}
+\end{equation*}
+
+\lstinputlisting{math/code/fibonacci1.java}
+
+\subsection*{Generalization}
+
+If $F_0 = a$ and $F_1 = b$, then:
+
+\begin{equation*}
+    \begin{bmatrix}
+        F_n \\
+        F_{n-1}
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        1 & 1 \\
+        1 & 0
+    \end{bmatrix}
+    ^{n-1}
+    \begin{bmatrix}
+        b \\
+        a
+    \end{bmatrix}
+\end{equation*}
+
+If $a = b = 1$, then the Fibonacci sequence will be "shifted" to the left by one. For example, 8 is the 6\textsuperscript{th} Fibonacci number, but would be the 5\textsuperscript{th} in the generalized Fibonacci sequence.
+
+(If $a = 0$ and $b = 1$, then it will be the normal sequence.)
+
+\newpage

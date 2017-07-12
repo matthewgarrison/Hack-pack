@@ -1,0 +1,35 @@
+\startsection{Permuations and Combinations}
+
+\textbf{Combinations}: to only process combinations with n items, check if \inline{Integer.bitCount(subset) == n}.
+
+\subsection*{Permutations}
+
+Note: assumes items can only be chosen once.
+
+Generates all the permutations of length \inline{len} in lexicographical order (assuming \inline{data} is sorted lexicographically). \inline{data} is the input array and \inline{perms} and \inline{used} are empty arrays of the same size. 
+
+\lstinputlisting{algorithms/code/permsandcombs1.java}
+
+You can pre-process permutations by adding conditions to line \#8. For example, if you want all the permutations of a string where first character of the original string isn't at an even index:
+
+\lstinputlisting{algorithms/code/permsandcombs2.java}
+
+\subsection*{Finding the lexicographically  k\textsuperscript{th} permutation}
+
+\textit{Runtime: O(n\textsuperscript{2})}, where n is the number of elements
+
+\inline{data} contains the input in lexicographically sorted order. \inline{k} is 0 indexed.
+
+\lstinputlisting{algorithms/code/permsandcombs3.java}
+
+\subsection*{Lexicographically next permutation}
+
+\textit{Runtime: O(n log(n))}, where n is the number of elements
+
+Assumes that the data will compare correctly, ie. \inline{data[i]} $<$ \inline{data[i+1]}. If this is not the case, you'll need a \inline{indexOf(n)}, which returns the index of \inline{n} in \inline{data}.
+
+To find the next permutation, we compute \inline{first}, the right-most element whose right element is larger than itself, and \inline{second}, the smallest element to the right of \inline{first} that is larger than \inline{first}. We then swap the elements at \inline{first} and \inline{second} and sort the elements to the right of \inline{first}.
+
+\lstinputlisting{algorithms/code/permsandcombs4.java}
+
+\newpage

@@ -40,23 +40,26 @@
 
 \begin{document}
 \maketitle
-\tableofcontents
+\begin{multicols}{2}
+    \tableofcontents
+\end{multicols}
 
 \newpage
 
 \input{general/approaches.tex}
-\input{general/baseconversion.tex}
-\input{general/binaryternarysearch.tex}
-\input{general/fastexpo.tex}
+\input{general/binternsearch.tex}
+\input{general/bits.tex}
 \input{general/formatstring.tex}
 \input{general/misc.tex}
-\input{general/pascalstriangle.tex}
-\input{general/primalityandsieves.tex}
 
 \input{algorithms/dijkstra.tex}
+\input{algorithms/floydcycle.tex}
 \input{algorithms/floydwarshall.tex}
+\input{algorithms/graphs.tex}
 \input{algorithms/heldkarp.tex}
 \input{algorithms/kruskalsandprims.tex}
+\input{algorithms/maxflow.tex}
+\input{algorithms/permsandcombs.tex}
 \input{algorithms/subsetsum.tex}
 
 \input{datastructs/builtin.tex}
@@ -66,6 +69,13 @@
 \input{datastructs/vector.tex}
 \input{datastructs/vertex.tex}
 
+\input{math/baseconversion.tex}
+\input{math/fastexpo.tex}
+\input{math/fibonacci.tex}
+\input{math/gcdlcmeea.tex}
 \input{math/matrices.tex}
+\input{math/misc.tex}
+\input{math/pascalstriangle.tex}
+\input{math/sieves.tex}
 
 \end{document}

@@ -10,51 +10,10 @@ You can also use lambdas with anonymous classes.
 
 \lstinputlisting{general/code/misc_anon2.java}
 
-\subsection*{Catalan numbers}
+\subsection*{Converting 2D coordinates to 1D coordinates}
 
-The only Catalan numbers $C_n$ that are odd are those for which $n=2^k-1$. All others are even.
+If you have \inline{x} and \inline{y}, and you know \inline{x} is guaranteed to be less than \inline{n}, then you can set \inline{newCoord = y * n + x;}. From that, you can then work backwords: \inline{x = newCoord \% n;} and \inline{y = newCord / n;}.
 
-The only prime Catalan numbers are $C_2=2$ and $C_3=5$.
-
-$C = \{1, 1, 2, 5, 14, 42, 132, 429, 1430, 4862, 16796, 58786, 208012, 742900, 2674440, 9694845, 35357670\}$
-
-$$
-    C_n = \frac{1}{n+1}\binom{2n}{n} = \binom{2n}{n} - \binom{2n}{n+1} = \frac{(2n)!}{(n+1)!n!} = \prod_{k=2}^{n} \frac{n+k}{k} = \frac{1}{n+1}\sum_{i=0}^{n}\binom{n}{i}^2 = \int_{0}^{4}x^n\frac{1}{2\pi}\sqrt{\frac{4-x}{x}} dx
-$$
-
-$$C_0 = 1$$
-$$C_{n+1} = \sum_{i=0}^{n}C_i C_{n-i} = \frac{2(2n + 1)}{n+2}C_n$$
-
-
-\subsection*{Checking equality in doubles}
-
-It can be hard to check equality in doubles due to floating point errors. This method will check for equality if floating point errors are possible:
-
-\lstinputlisting{general/code/misc_doubleequal1.java}
-
-10\textsuperscript{-9} is generally a good value for \inline{EPSILON}. Also, most problems involving doubles will tell you how much error two values can have and still be considered equal.
-
-\subsection*{Coupon collector's problem}
-
-Suppose there is an urn with n different coupons. What is the probability that more than t sample trials are needed to collect all n coupons? Or, given n coupons, how many coupons do you expect you need to draw with replacement before having drawn each coupon at least once?
-
-Alternatively, how many times do you expect to need to roll an n-sided die in order to have every number come up at least once?
-
-The answer: n * H\subscript{n}, where n is the number of coupons and H\subscript{n} is the n\textsuperscript{th} Harmonic number.
-
-$$H_n = 1 + \frac{1}{2} + \frac{1}{3} + ... + \frac{1}{n} = \sum_{k=1}^n \frac{1}{k}$$
-
-\subsection*{Evaluating polynomials at a point}
-
-Given an array of the coefficients of a polynomial you can find the value of the polynomial evaluated at a number num (ie. P(num), where P(x) is the polynomial). This works by the remainder theorem.
-
-Note that the array of coefficients should be in descending order. If \inline{P(x) = 3x\textsuperscript{2} - 2x + 1}, then the array should equal \inline{\{3, -2, 1\}}.
-
-\subsection*{Finding the average of two values}
-
-Obviously, you can do it like this: \inline{int c = (a + b) >> 1;}
-
-However, that can lead to overflows. This will not: \inline{int c = a + ((b - a) >> 1);}
 
 \subsection*{Frame problems}
 
@@ -158,6 +117,16 @@ The movements for a knight in chess, following this clockwise pattern:
 If you’re given a series of overlapping times (ie. start and end times), and have to find something (eg. location of the most overlaps), make a Time class, with an \inline{isStart} boolean, a \inline{time} int, and one or more values for that time interval, depending on the problem. Implement Comparable and sort it according to \inline{time}, with starts coming before ends in the event of a tie.
 
 Fill an ArrayList with the Time objects, sort it, and run through it.
+
+\subsection*{Stack trick}
+
+If you're getting stack overflow:
+
+\begin{itemize}
+    \item Extend Runnable
+    \item Move everything from \inline{main()} to \inline{run()}
+    \item In main, the only thing should be \inline{new Thread(null, new ClassName(), "", \\ stackSize).start();}
+\end{itemize}
 
 \subsection*{Tower of Hanoi}
 

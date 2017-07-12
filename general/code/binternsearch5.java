@@ -1,10 +1,8 @@
-static double ternarySearch() {
-	double low = 0, high = Math.PI;
-	for (int i = 0; i < 100; i++) {
-		double lowThird = ((2 * low) + high) / 3;
-		double highThird = (low + (2 * high)) / 3;
-		if (calc(lowThird) > calc(highThird)) low = lowThird;
-		else high = highThird;
-	}
-	return low;
+double lo = 0, hi = Math.PI, ans = -1;
+for (int i = 0; i < 100; i++) {
+	double mid = lo + (hi - lo)/2.0;
+	double val = formula(mid);
+	if (equals(val, key)) { ans = mid; break; }
+	else if (val > key) hi = mid;
+	else lo = mid;
 }

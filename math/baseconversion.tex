@@ -1,0 +1,31 @@
+\startsection{Base conversion}
+
+\subsection*{To base 10}
+
+\lstinline{Integer.parseInt(String str, int radix)} will convert a String from a given radix to base 10, where radix $\leq 36$.
+
+Manual base conversion is useful if the radix is higher than 36 or the base is non-standard. For example, you have to convert to base 7, but all the odd digits aren't allowed.
+
+\lstinputlisting{math/code/baseconversion1.java}
+
+\subsection*{From base 10}
+
+\lstinline{Integer.toString(int num, int radix)} will convert a number from base 10 to a given radix, where radix $\leq 36$.
+
+Manual base conversion:
+\lstinputlisting{math/code/baseconversion2.java}
+
+\subsection*{Floating point}
+
+\textbf{To base 10}: Do the whole number part like normal. For the fractional part, use inverse powers of radix (eg. $\frac{1}{radix}$, $\frac{1}{radix^2}$, etc.).
+
+\textbf{From base 10}: Do the whole number part like normal. For the fractional part:
+
+\begin{enumerate}
+    \item Remove the whole number part
+    \item Multiply \inline{input} by \inline{radix}
+    \item Add the whole number part of \inline{input} to the output
+    \item Repeat until the fractional part is zero
+\end{enumerate}
+
+\newpage

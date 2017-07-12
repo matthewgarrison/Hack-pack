@@ -1,0 +1,27 @@
+\startsection{Floyd's Cycle Finding Algorithm}
+
+Note: this finds cycles in a sequence of iterated function values, not in graphs.
+
+\textit{Runtime: O(mu + lambda)}
+
+Let \inline{mu} be the smallest index i where x\subscript{i} is part of the cycle. Let \inline{lambda} be the length of the cycle. $foo(x_i)$ returns the x\subscript{i+1} element.
+
+\textbf{Step 1}
+
+Both \inline{tortoise} and \inline{hare} start at the first element, x\subscript{0}. \inline{tortoise} advances by 1 every iteration and \inline{hare} advances by 2. When \inline{tortoise} and \inline{hare} equal each other, a cycle of \inline{k*lambda} length has been found.
+
+\lstinputlisting{algorithms/code/floydcycle1.java}
+
+\textbf{Step 2}
+
+We reset \inline{hare} to x\subscript{0} and advance both pointers by 1 every iteration. When they equal the same value, we've found \inline{mu}.
+
+\lstinputlisting{algorithms/code/floydcycle2.java}
+
+\textbf{Step 3}
+
+We then set \inline{hare} to \inline{tortoise} and advance it by 1 each iteration. When \inline{hare} equals \inline{tortoise}, we've found the length of the cycle.
+
+\lstinputlisting{algorithms/code/floydcycle3.java}
+
+\newpage

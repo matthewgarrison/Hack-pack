@@ -1,0 +1,34 @@
+\startsection{Bits}
+
+\textbf{NOT}: Because Java uses two's complement, \inline{\textasciitilde n} returns \inline{abs(n) - 1}
+
+\textbf{Left shift}: left shift of x by y is essentially multiplying x by 2\textsuperscript{y}
+
+\textbf{Right shift}: right shift of x by y is essentially dividing x by 2\textsuperscript{y}
+
+\textbf{Modding by a power of two}: If y = 2\textsuperscript{n}, then \inline{x \% y} is equivalent to \inline{x \& (y - 1)}
+
+\textbf{Check if \inline{n} is a power of two}: \inline{n != 0 \&\& (n \& (n - 1)) == 0}
+
+Alternatively: \inline{Integer.bitCount(n) == 0}
+
+\textbf{Determine power}: If If y = 2\textsuperscript{n}, then \inline{n = Integer.highestOneBit(y);}
+
+\textbf{Check if \inline{x} and \inline{y} have opposite signs}: \inline{(x $\wedge$ y) < 0}
+
+\textbf{Integer $log_2 (n)$}: \inline{Integer.numberOfTrailingZeros(Integer.highestOneBit(x))}
+
+\textbf{Undoing XOR}: if \inline{c = a $\wedge$ b}, then \inline{a = c $\wedge$ b} and \inline{b = c $\wedge$ a}
+
+\textbf{Highest one bit}: \inline{n \& (-n)}
+
+\textbf{Toggle masks}: If you have a bitmask and you want to toggle the n\textsuperscript{th} bit, \inline{mask $\wedge$= 1 << n;}
+
+\textbf{Perfect square check}:
+
+\lstinputlisting{general/code/bits1.java}
+
+
+
+
+\newpage

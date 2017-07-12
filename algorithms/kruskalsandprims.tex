@@ -2,12 +2,14 @@
 
 Kruskal's algorithm takes the shortest Edge that hasn't been used yet and connects the two vertexes if they aren't already indirectly connected. Prim's algorithm only considers the edges connected to vertexes already in the MST.
 
-If a single MST is guaranteed to exist, it doesn't matter which algorithm you use. If it isn't, then the correct algorithm to use depends on what you want: Kruskal's will make several distinct MSTs and tell you the weight of all of them combined, while Prim’s can simply tell you if a single MST doesn't exist, and allow you to go from there. If you're using Kruskal's, you can also just check if \inline{edgeCount == numEdges-1}.
+If a single MST is guaranteed to exist, it doesn't matter which algorithm you use. If it isn't, then the correct algorithm to use depends on what you want: Kruskal's will make several distinct MSTs and tell you the weight of all of them combined, while Prim's can simply tell you if a single MST doesn't exist, and allow you to go from there. If you're using Kruskal's, you can also just check if \inline{edgeCount == numEdges-1}.
 
 \subsection*{Kruskal's}
 
 \textit{Runtime: O(E log(E))}, or equivalently \textit{O(E log(V)} \\
 \indent Sorting the Edges is also \textit{O(E log(E))}
+
+If \inline{edgeCount} does not equal \inline{numNodes-1} at the end, then a single MST doesn't exist (there may be no MST, or there may be multiple MSTs that contain only part of the graph.
 
 \lstinputlisting{algorithms/code/kruskalsandprims1.java}
 

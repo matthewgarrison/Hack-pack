@@ -1,0 +1,74 @@
+\startsection{Miscellaneous}
+
+\subsection*{Catalan numbers}
+
+The only Catalan numbers $C_n$ that are odd are those for which $n=2^k-1$. All others are even.
+
+The only prime Catalan numbers are $C_2=2$ and $C_3=5$.
+
+$C = \{1, 1, 2, 5, 14, 42, 132, 429, 1430, 4862, 16796, 58786, 208012, 742900, 2674440, 9694845, 35357670\}$
+
+$$
+    C_n = \frac{1}{n+1}\binom{2n}{n} = \binom{2n}{n} - \binom{2n}{n+1} = \frac{(2n)!}{(n+1)!n!} = \prod_{k=2}^{n} \frac{n+k}{k} = \frac{1}{n+1}\sum_{i=0}^{n}\binom{n}{i}^2 = \int_{0}^{4}x^n\frac{1}{2\pi}\sqrt{\frac{4-x}{x}} dx
+$$
+
+$$C_0 = 1$$
+$$C_{n+1} = \sum_{i=0}^{n}C_i C_{n-i} = \frac{2(2n + 1)}{n+2}C_n$$
+
+
+\subsection*{Checking equality in doubles}
+
+It can be hard to check equality in doubles due to floating point errors. This method will check for equality if floating point errors are possible:
+
+\lstinputlisting{math/code/misc_doubleequal1.java}
+
+10\textsuperscript{-9} is generally a good value for \inline{EPSILON}. Also, most problems involving doubles will tell you how much error two values can have and still be considered equal.
+
+\subsection*{Coupon collector's problem}
+
+Suppose there is an urn with n different coupons. What is the probability that more than t sample trials are needed to collect all n coupons? Or, given n coupons, how many coupons do you expect you need to draw with replacement before having drawn each coupon at least once?
+
+Alternatively, how many times do you expect to need to roll an n-sided die in order to have every number come up at least once?
+
+The answer: n * H\subscript{n}, where n is the number of coupons and H\subscript{n} is the n\textsuperscript{th} Harmonic number.
+
+$$H_n = 1 + \frac{1}{2} + \frac{1}{3} + ... + \frac{1}{n} = \sum_{k=1}^n \frac{1}{k}$$
+
+\subsection*{Euler's totient function}
+
+$\phi (n)$, or $\Phi (n)$ or $\varphi (n)$, counts the positive integers up to an integer $n$ that are relatively prime to $n$.
+
+Properties:
+\begin{itemize}
+    \item If $gcd(n, m) = 1$, then $\phi (nm) = \phi (n) \phi (m)$
+    \item If $p$ is prime, $\phi (p) = p-1$, for $p < 10^{20}$
+    \item If $n$ is even, $\phi (2n) = 2 \phi(n)$
+\end{itemize}
+
+\subsection*{Finding the average of two values}
+
+Obviously, you can do it like this: \inline{int c = (a + b) >> 1;}
+
+However, that can lead to overflows. This will not: \inline{int c = a + ((b - a) >> 1);}
+
+Alternatively: \inline{((x $\wedge$ y) >> 1) + (x \& y)}
+
+\subsection*{Evaluating polynomials at a point}
+
+Given an array of the coefficients of a polynomial you can find the value of the polynomial evaluated at \inline{x} (ie. $f(x)$). This works by the remainder theorem.
+
+\lstinputlisting{math/code/misc_evalpoly1.java}
+
+Note that the array of coefficients should be in descending order. If \inline{P(x) = 3x\textsuperscript{2} - 2x + 1}, then the array should equal \inline{\{3, -2, 1\}}.
+
+\subsection*{Log properties}
+
+$$log_b(x) = \frac{log_y(x)}{log_y(b)} \text{, where } y \text{ is any base}$$
+
+\subsection*{Primality}
+
+This is a longer isPrime method, but one that is faster than the naïve version.
+
+\lstinputlisting{math/code/misc_primality1.java}
+
+\newpage

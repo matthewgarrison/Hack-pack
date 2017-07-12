@@ -1,0 +1,1 @@
+if (used[j] == false && (j != 0 || position % 2 != 0)) {}

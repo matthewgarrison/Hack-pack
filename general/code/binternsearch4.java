@@ -1,10 +1,8 @@
-static double binarySearch(double key) {
-	double lo = 0, hi = Math.PI;
-	for (int i = 0; i < 100; i++) {
-		double mid = lo + (hi - lo)/2.0;
-		double ans = formula(mid);
-		if (ans > key) hi = mid;
-		else lo = mid;
-	}
-	return lo;
+int lo = 0, hi = arr.length-1, ans = -1;
+while (lo <= hi) {
+	int mid = lo + (hi - lo)/2;
+	int cmp = arr[mid].compareTo(key);
+	if (cmp == 0) return mid;
+	else if (cmp > 0) hi = mid - 1;
+	else lo = mid + 1;
 }
