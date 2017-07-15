@@ -2,7 +2,7 @@
 
 \textit{Runtime: O(V\textsuperscript{3})}
 
-This algorithm finds the shortest path between all indexes of a weighted or unweighted graph. This will fail if there are any negative cycles (ie. the sum of the weights of the edges of the cycle is negative).
+This algorithm finds the shortest path between all indexes of a weighted or unweighted graph. Negative edge weights are allowed, but negative cycles are not (ie. the sum of the weights of the edges of the cycle is negative).
 
 Scan the connections into a $n \times n$ \inline{adj} array, where 0 is no cost (ie. from a vertex to itself), \inline{INFINITY} is no edge, and anything else is the cost of the edge.
 

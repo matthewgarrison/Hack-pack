@@ -62,6 +62,18 @@ If you want to input lines in order, so each one is at a 90-degree angle to the 
 
 \lstinputlisting{general/code/misc_inputclockwise1.java}
 
+\subsection*{Max Contiguous Subsequent Sum (MCSS)}
+
+This problem asks you to find the maximum sum of some contiguous sequence of numbers, whose length is non-zero. If all the numbers are negative, then the answer is zero.
+
+If you just want the answer, use this version:
+
+\lstinputlisting{general/code/misc_mcss1.java}
+
+If you also want the start and end indexes of the subsequence, use this version:
+
+\lstinputlisting{general/code/misc_mcss2.java}
+
 \subsection*{Magic squares}
 
 To solve a 3x3 magic square, add up all the known numbers and divide by two. This is your target number. Then, for every blank square, subtract the sum of the non-blank squares in that row/column/diagonal from the target number to get your answer.
