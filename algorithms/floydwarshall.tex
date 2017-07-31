@@ -4,8 +4,6 @@
 
 This algorithm finds the shortest path between all indexes of a weighted or unweighted graph. Negative edge weights are allowed, but negative cycles are not (ie. the sum of the weights of the edges of the cycle is negative).
 
-Scan the connections into a $n \times n$ \inline{adj} array, where 0 is no cost (ie. from a vertex to itself), \inline{INFINITY} is no edge, and anything else is the cost of the edge.
-
 The path array is only used if you need to find the actual path from i to j. Once the algorithm has been run, the value at (i, j) is the index of the last vertex reached before j when travelling on the shortest path from i to j. For example, if the path from i to j is [i -> 5 -> 3 -> 2 -> j], the value at (i, j) will be 2. You construct the array with the previous vertex for each edge (ie. i) and use -1 to indicate no edge.
 
 \lstinputlisting{algorithms/code/floydwarshall1.java}

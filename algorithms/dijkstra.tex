@@ -2,9 +2,7 @@
 
 \textit{Runtime: O(E + V log(V))}
 
-Dijkstra’s algorithm finds the shortest path from a single index to every other index. It is faster than Floyd-Warshall when there is a single origin point. (Note: this algorithm is only useful if the graph is weighted. Otherwise, simply use a BFS.) This algorithm will fail if any of the edges have a negative weight.
-
-Scan the connections into a $n \times n$ \inline{adj} array, where 0 is no cost (ie. from a vertex to itself), \inline{INFINITY} is no edge, and anything else is the cost of the edge. You also need to add the vertexes to each others' \inline{neighbors} lists.
+Dijkstra’s algorithm finds the shortest path from a single index to every other index. This algorithm will fail if any of the edges have a negative weight.
 
 \lstinputlisting{algorithms/code/dijkstra1.java}
 

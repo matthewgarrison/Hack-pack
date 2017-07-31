@@ -3,7 +3,6 @@ boolean[][] memo = new boolean[numNums+1][target+1];
 for(int i = 0; i <= numNums; i++) memo[i][0] = true;
 for (int n = 1; n <= numNums; n++) {
 	for (int t = 1; t <= target; t++) {		
-	    // Try it without the current number, then with it.
 		memo[n][t] = memo[n-1][t];
 		if (t >= nums[n]) memo[n][t] |= memo[n-1][t - nums[n]];
 	}

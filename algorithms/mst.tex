@@ -1,0 +1,35 @@
+\startsection{Minimum spanning trees}
+
+Kruskal's algorithm takes the shortest Edge that hasn't been used yet and connects the two vertexes if they aren't already indirectly connected. Prim's algorithm only considers the edges connected to vertexes already in the MST.
+
+If the graph is not connected, then the correct algorithm to use depends on what you want: Kruskal's will make a MST for each component and tell you the weight of all of them combined, while both Kruskal's and Prim's can tell you if a single MST doesn't exist, and allow you to go from there.
+
+\subsection*{Kruskal's}
+
+\textit{Runtime: O(E log(E))}, or equivalently \textit{O(E log(V))} \\
+\indent Sorting the Edges is also \textit{O(E log(E))}
+
+If \inline{edgeCount} does not equal \inline{numNodes-1} at the end, then the graph is not connected.
+
+\lstinputlisting{algorithms/code/mst1.java}
+
+\subsection*{Prim's}
+
+\textit{Runtime: O(E log(E))}
+
+(This algorithm uses two \inline{Edge} objects to represent a single undirected edge, one for each vertex in the edge (ie. $v_1$ -$> v_2$ and $v_2$ -$> v_1$).)
+
+\lstinputlisting{algorithms/code/mst2.java}
+
+\textit{Runtime: O(V\textsuperscript{2})}
+
+This version is useful on dense graphs ($E \approx V^2$), because it is actually faster than the above version (no $log()$ factor). Also, unlike other \inline{adj} arrays, \inline{adj[i][i]} is NOT set to 0 (rather, it is \inline{INFINITY}).
+
+\lstinputlisting{algorithms/code/mst3.java}
+
+\subsection*{Boruvka's}
+
+\textit{Runtime: O(E log(V))} \\
+\indent \textit{O(V)} on planar graphs
+
+\newpage

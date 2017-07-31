@@ -15,19 +15,16 @@ static void createGraph(int n) {
 	blocked = new boolean[n];
 	queue = new ArrayDeque<>();
 }
-
 static void addEdge(int v1, int v2, int cap) {
 	Edge e = new Edge(v1, v2, cap);
 	vertexes[v1].edges.add(e);
 	vertexes[v2].edges.add(e.rev);
 }
-
 // Only necessary if you are running Dinic's on the same graph multiple times.
 static void clear() {
 	for (Vertex v : vertexes)
         for (Edge e : v.edges) e.flow = 0;
 }
-
 static int dinics() {
 	clear();
 	int flow = 0;
@@ -37,7 +34,6 @@ static int dinics() {
 	}
 	return flow;
 }
-
 static boolean bfs() {
 	Arrays.fill(dist, -1);
 	dist[source] = 0;
@@ -56,7 +52,6 @@ static boolean bfs() {
 	// Returns whether we made it to the source from the sink.
 	return (dist[sink] > 0);
 }
-
 static int dfs(int curr, int min) {
 	// The min parameter refers to the minimum residual capacity encountered 
 	// further up our call stack.
@@ -87,9 +82,7 @@ static int dfs(int curr, int min) {
 	blocked[curr] = (flow != min);
 	return flow;
 }
-
-// Only necessary if we need to remove edges.
-static void remove(int v1, int v2) {
+static void removeEdge(int v1, int v2) {
 	Edge e;
 	for (int i = 0; i < vertexes[v1].edges.size(); i++) {
 		e = vertexes[v1].edges.get(i);

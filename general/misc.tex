@@ -12,8 +12,9 @@ You can also use lambdas with anonymous classes.
 
 \subsection*{Converting 2D coordinates to 1D coordinates}
 
-If you have \inline{x} and \inline{y}, and you know \inline{x} is guaranteed to be less than \inline{n}, then you can set \inline{newCoord = y * n + x;}. From that, you can then work backwords: \inline{x = newCoord \% n;} and \inline{y = newCord / n;}.
+If you have \inline{x} and \inline{y} and \inline{cols}, then you can set \inline{newCoord = y * cols + x;}. From that, you can then work backwards: \inline{x = newCoord \% cols;} and \inline{y = newCord / cols;}.
 
+This can also be extended to 3 dimensions: \inline{newCoord = z * rows * cols + y * cols + x;}
 
 \subsection*{Frame problems}
 
@@ -137,7 +138,7 @@ If you're getting stack overflow:
 \begin{itemize}
     \item Extend Runnable
     \item Move everything from \inline{main()} to \inline{run()}
-    \item In main, the only thing should be \inline{new Thread(null, new ClassName(), "", \\ stackSize).start();}
+    \item In \inline{main()}, the only thing should be \inline{new Thread(null, new ClassName(), "", \\ stackSize).start();}
 \end{itemize}
 
 \subsection*{Tower of Hanoi}
