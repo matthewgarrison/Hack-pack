@@ -10,7 +10,7 @@ A \inline{TreeMap} sorts the Keys according to their natural ordering or a provi
 
 A \inline{LinkedHashMap} orders the Keys according to the order in which they were inserted. "Note that insertion order is not affected if a key is re-inserted into the map. (A key k is reinserted into a map m if \inline{m.put(k, v)} is invoked when \inline{m.containsKey(k)} would return true immediately prior to the invocation.)" Operations are mostly \textit{O(1)} (slightly slower than \inline{HashMap}, except for iteration, which is \textit{O(n)}).
 
-A \inline{HashMap} orders the Keys randomly. Operations are mostly \textit{O(1)} (iteration is \textit{O(n+capacity)}.
+A \inline{HashMap} orders the Keys randomly. Operations are mostly \textit{O(1)} (worst case \textit{O(log(n))}), though iteration is \textit{O(n+capacity)}.
 
 Iterates over the values in the map, where K and V are the types of the Keys and Values in the map:
 

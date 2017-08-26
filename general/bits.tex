@@ -2,9 +2,9 @@
 
 \textbf{NOT}: Because Java uses two's complement, \inline{\textasciitilde n} returns \inline{abs(n) - 1}
 
-\textbf{Left shift}: left shift of x by y is essentially multiplying x by 2\textsuperscript{y}
+\textbf{Left shift}: left shift of x by y is equivalent to multiplying x by 2\textsuperscript{y}
 
-\textbf{Right shift}: right shift of x by y is essentially dividing x by 2\textsuperscript{y}
+\textbf{Right shift}: right shift of x by y is equivalent to dividing x by 2\textsuperscript{y}
 
 \textbf{Modding by a power of two}: If y = 2\textsuperscript{n}, then \inline{x \% y} is equivalent to \inline{x \& (y - 1)}
 
@@ -12,17 +12,17 @@
 
 Alternatively: \inline{Integer.bitCount(n) == 1}
 
-\textbf{Determine power}: If If y = 2\textsuperscript{n}, then \inline{n = Integer.highestOneBit(y);}
-
 \textbf{Check if \inline{x} and \inline{y} have opposite signs}: \inline{(x $\wedge$ y) < 0}
 
-\textbf{Integer $log_2 (n)$}: \inline{Integer.numberOfTrailingZeros(Integer.highestOneBit(x))}
+\textbf{Determine powers of 2}: \inline{Integer.highestOneBit(n)} returns a number with a single one bit in the same position as the highest one bit in $n$. For example, \inline{Integer.highestOneBit(10) == 8} and \inline{Integer.highestOneBit(16) == 16}.
+
+\inline{Integer.numberOfTrailingZeros(Integer.highestOneBit(n))} will return the position of that one bit. This is also equivalent to $floor(log_2 (n))$
+
+Lowest one bit (there's also an \inline{Integer} method): \inline{n \& (-n)}
 
 \textbf{Undoing XOR}: if \inline{c = a $\wedge$ b}, then \inline{a = c $\wedge$ b} and \inline{b = c $\wedge$ a}
 
-\textbf{Highest one bit}: \inline{n \& (-n)}
-
-\textbf{Toggle masks}: If you have a bitmask and you want to toggle the n\textsuperscript{th} bit, \inline{mask $\wedge$= 1 << n;}
+\textbf{Toggle bitmasks}: If you have a bitmask and you want to toggle the n\textsuperscript{th} bit, \inline{mask $\wedge$= 1 << n;}
 
 \textbf{Perfect square check}:
 

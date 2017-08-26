@@ -1,5 +1,15 @@
 \startsection{Miscellaneous}
 
+\subsection*{Bell numbers} 
+
+The number of partitions a set of n elements has. (Partition of a set: grouping of the set's elements into non-empty subsets, in such a way that every element is included in one and only one of the subsets.)
+
+$B = \{1, 1, 2, 5, 15, 52, 203, 877, 4140, 21147, 115975, 678570, 4213597, 27644437, 190899322, 1382958545\}$
+
+The Bell numbers can be calculated with the Bell triangle (similar to Pascal's triangle), where B\subscript{n} is the first number in the n\textsuperscript{th} row.
+
+\lstinputlisting{math/code/misc_bell1.java}
+
 \subsection*{Catalan numbers}
 
 The only Catalan numbers $C_n$ that are odd are those for which $n=2^k-1$. All others are even.
@@ -11,9 +21,7 @@ $C = \{1, 1, 2, 5, 14, 42, 132, 429, 1430, 4862, 16796, 58786, 208012, 742900, 2
 $$
     C_n = \frac{1}{n+1}\binom{2n}{n} = \binom{2n}{n} - \binom{2n}{n+1} = \frac{(2n)!}{(n+1)!n!} = \prod_{k=2}^{n} \frac{n+k}{k} = \frac{1}{n+1}\sum_{i=0}^{n}\binom{n}{i}^2 = \int_{0}^{4}x^n\frac{1}{2\pi}\sqrt{\frac{4-x}{x}} dx
 $$
-
-$$C_0 = 1$$
-$$C_{n+1} = \sum_{i=0}^{n}C_i C_{n-i} = \frac{2(2n + 1)}{n+2}C_n$$
+$$C_0 = 1 \formsep C_{n+1} = \sum_{i=0}^{n}C_i C_{n-i} = \frac{2(2n + 1)}{n+2}C_n$$
 
 
 \subsection*{Checking equality in doubles}
@@ -34,13 +42,11 @@ The answer: n * H\subscript{n}, where n is the number of coupons and H\subscript
 
 $$H_n = 1 + \frac{1}{2} + \frac{1}{3} + ... + \frac{1}{n} = \sum_{k=1}^n \frac{1}{k}$$
 
-\subsection*{Finding the average of two values}
+\subsection*{Digital root formula}
 
-Obviously, you can do it like this: \inline{int c = (a + b) >> 1;}
+The digital root of a non-negative $n$ is the result of repeatedly summing the digits of $n$. Eg. the digital root of 65,536 is 7 because $dr(65536) = 6+5+5+3+6 = 25$ and $dr(25) = 2+5 = 7$. 
 
-However, that can lead to overflows. This will not: \inline{int c = a + ((b - a) >> 1);}
-
-Alternatively: \inline{((x $\wedge$ y) >> 1) + (x \& y)}
+$dr(n) = 1 + ((n-1) \text{ mod } 9)$. To generalize to another base $b$, change $9$ to $b-1$.
 
 \subsection*{Evaluating polynomials at a point}
 
@@ -50,14 +56,82 @@ Given an array of the coefficients of a polynomial you can find the value of the
 
 Note that the array of coefficients should be in descending order. If \inline{P(x) = 3x\textsuperscript{2} - 2x + 1}, then the array should equal \inline{\{3, -2, 1\}}.
 
+\subsection*{Finding the average of two values}
+
+Obviously, you can do it like this: \inline{int c = (a + b) >> 1;}
+
+However, that can lead to overflows. This will not: \inline{int c = a + ((b - a) >> 1);}
+
+Alternatively: \inline{((x $\wedge$ y) >> 1) + (x \& y)}
+
 \subsection*{Log properties}
 
 $$log_b(x) = \frac{log_y(x)}{log_y(b)} \text{, where } y \text{ is any base}$$
+
+\subsection*{Pascal's triangle}
+
+\begin{center}
+1 \\
+1 1 \\
+1 2 1 \\
+1 3 3 1 \\
+1 4 6 4 1 \\
+1 5 10 10 5 1
+\end{center}
+
+Pascal’s triangle is a triangular array of the binomial coefficients, that is $(x + y)^n$. The rows (designated by $n$) and columns (designated by $k$) are 0-indexed. So 6 is at row 4, column 2. This is also known as \textit{n choose k} or $\binom{n}{k}$.
+
+\lstinputlisting{math/code/misc_pascal1.java}
+
+Given the n\textsuperscript{th} row of Pascal's triangle (in \inline{coefficients}) and values of a and b (from the expression $(ax + by)^{pow}$), this will give you the coefficients of the expanded binomial expression.
+
+\lstinputlisting{math/code/misc_pascal2.java}
 
 \subsection*{Primality}
 
 This is a longer isPrime method, but one that is faster than the “na\"{\i}ve version.
 
 \lstinputlisting{math/code/misc_primality1.java}
+
+\subsection*{Stirling numbers (second kind)}
+
+The number of ways to partition a set of n distinguishable objects into k non-empty subsets (denoted $S(n, k)$ or $\genfrac{\{}{\}}{0pt}{}{n}{k}$).
+$$S(n, k) = S(n-1, k-1) + k*S(n-1, k) = \frac{1}{k!} \sum_{j=0}^k (-1)^{k-j} \binom{k}{j} j^n$$
+
+\begin{center}
+    \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+        \hline
+        n / k & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\
+        \hline
+        0 & 1 & & & & & & & & & & \\
+        \hline
+        1 & 0 & 1 & & & & & & & & & \\
+        \hline
+        2 & 0 & 1 & 1 & & & & & & & & \\
+        \hline
+        3 & 0 & 1 & 3 & 1 & & & & & & & \\
+        \hline
+        4 & 0 & 1 & 7 & 6 & 1 & & & & & & \\
+        \hline
+        5 & 0 & 1 & 15 & 25 & 10 & 1 & & & & & \\
+        \hline
+        6 & 0 & 1 & 31 & 90 & 65 & 15 & 1 & & & & \\
+        \hline
+        7 & 0 & 1 & 63 & 301 & 350 & 140 & 21 & 1 & & & \\
+        \hline
+        8 & 0 & 1 & 127 & 966 & 1701 & 1050 & 266 & 28 & 1 & & \\
+        \hline
+        9 & 0 & 1 & 255 & 3025 & 7770 & 6951 & 2946 & 462 & 36 & 1 & \\
+        \hline
+        10 & 0 & 1 & 511 & 9330 & 34105 & 42525 & 22827 & 5880 & 750 & 45 & 1 \\
+        \hline
+    \end{tabular}
+\end{center}
+
+The sum over the values for k of the Stirling numbers of the second kind, gives us $B_n = \sum_{k=0}^n \genfrac{\{}{\}}{0pt}{}{n}{k}$, ie. the n\textsuperscript{th} Bell number.
+
+\subsection*{Stirling's approximation}
+
+$$\text{ln}(n!) \approx n \text{ln}(n) - n \formsep n! \approx \sqrt{2 \pi n} \bigg(\frac{n}{e} \bigg)^n$$
 
 \newpage
