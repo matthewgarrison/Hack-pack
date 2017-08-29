@@ -63,6 +63,17 @@ If you want to input lines in order, so each one is at a 90-degree angle to the 
 
 \lstinputlisting{general/code/misc_inputclockwise1.java}
 
+\subsection*{Knight's Shortest Path}
+
+To find the shortest path a knight can take from $(x_1, y_1)$ to $(x_2, y_2)$ on an infinite chessboard:
+
+\lstinputlisting{general/code/misc_knight1.java}
+
+If the chessboard is not infinite, you will need to check if the knight is moving from a corner of the board to the square that is one square away diagonally (the formula produces 2, but the answer is 4). \\
+If \inline{numRows == 4}, then when \inline{dy == 3 \&\& (x == 0 || x == numCols-1)}, the formula produces 3 instead of 5 (this applies if \inline{numCols == 4} or both are 4). \\
+If \inline{numRows == 3}, then when \inline{dx == 2 \&\& y == 1}, the formula produces 2 instead of 4 (this applies if \inline{numCols == 3}, but doesn't if both are 3; you start getting impossible cases).
+
+
 \subsection*{Max Contiguous Subsequent Sum (MCSS)}
 
 This problem asks you to find the maximum sum of some contiguous sequence of numbers, whose length is non-zero. If all the numbers are negative, then the answer is zero.
@@ -90,12 +101,7 @@ For prime factorization, first create the prime sieve. Then for each prime numbe
 \subsection*{Pythagorean triple}
 
 A Pythagorean Triple is 3 numbers, a, b, c, such that $a^2 + b^2 = c^2$. For all Pythagorean Triples, there exist positive integers x and y, with x $>$ y, such that:
-
-\begin{itemize}
-    \item $a = x^2 - y^2$
-    \item $b = 2xy$
-    \item $c = x^2 + y^2$
-\end{itemize}
+$$a = x^2 - y^2 \formsep b = 2xy \formsep c = x^2 + y^2$$
 
 \subsection*{Range sums}
 
