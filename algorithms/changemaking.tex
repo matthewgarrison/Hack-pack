@@ -1,0 +1,27 @@
+\startsection{Change making problem}
+
+There are two similar problems called the change making problem. NOTE: for both problems, if the coins aren't guaranteed to be given in sorted order, make sure to sort them.
+
+\subsection*{The first}
+
+The first asks how many different ways an amount of change can be made using a set of coins.
+
+Iterative (space-saving) solution, where \inline{coins} is an array containing all the values of the coins, in ascending order.
+
+\lstinputlisting{algorithms/code/changemaking1.java}
+
+Recursive version:
+
+\lstinputlisting{algorithms/code/changemaking2.java}
+
+\subsection*{The second}
+
+The second asks how to make that amount of change using the fewest coins.
+
+This problem can sometimes be solved using a greedy algorithm. If \inline{coins} is a descending-sorted array of the values of each of the coins, this will work for some combinations of coin values, including U.S. coins. However, for example, if the coins are \{25, 21, 10, 5, 1\} and \inline{numCents} = 63, this will not work.
+
+The DP solution that will always work is as follows. Note that for this program, \inline{coins} is in ascending order.
+
+\lstinputlisting{algorithms/code/changemaking3.java}
+
+\newpage

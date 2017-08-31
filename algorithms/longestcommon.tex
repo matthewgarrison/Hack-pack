@@ -1,0 +1,33 @@
+\startsection{Longest common subsequence/substring}
+
+\subsection*{Longest common subsequence}
+
+This problem finds the longest common subsequence between two strings. To find just the length (stored in \inline{memo[a.length()][b.length()]}, where \inline{a} and \inline{b} are \inline{char[]}):
+
+\lstinputlisting{algorithms/code/longestcommon1.java}
+
+Space-saving version, if all you need is the length (answer in \inline{memo[1][b.length]} and \inline{b} contains the shorter string):
+
+\lstinputlisting{algorithms/code/longestcommon2.java}
+
+To find the LCS itself:
+
+\lstinputlisting{algorithms/code/longestcommon3.java}
+
+If that doesn't work, use this recursive method:
+
+\lstinputlisting{algorithms/code/longestcommon4.java}
+
+If there’s more than one possible LCS, use this method:
+
+\lstinputlisting{algorithms/code/longestcommon5.java}
+
+To find the LCS of $n$ Strings, you need an n\textsuperscript{th} dimensional array.
+
+\subsection*{Longest common substring}
+
+The answer is in \inline{memo[1][b.length]} and \inline{b} contains the shorter string.
+
+\lstinputlisting{algorithms/code/longestcommon6.java}
+
+\newpage
