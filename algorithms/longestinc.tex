@@ -1,0 +1,20 @@
+\startsection{Longest increasing subsequence/subsection}
+
+\subsection*{Longest increasing subsequence}
+
+This is the $n^2$ version, which finds the strictly increasing subsequence. 
+
+\lstinputlisting{algorithms/code/longestinc1.java}
+
+This is the $n\text{log}(n)$ version. \inline{indexOfLastElement[j]} stores the index \inline{k} of the smallest value \inline{arr[k]} such that there is an increasing subsequence of length \inline{j} ending at \inline{arr[k]}. \inline{previous[k]} stores the index of the predecessor of \inline{arr[k]} in the longest increasing subsequence ending at \inline{arr[k]}.
+
+\lstinputlisting{algorithms/code/longestinc2.java}
+
+\subsection*{Longest increasing substring}
+
+Finds the LIS, as a frame problem.
+
+\lstinputlisting{algorithms/code/longestinc3.java}
+
+
+\newpage
