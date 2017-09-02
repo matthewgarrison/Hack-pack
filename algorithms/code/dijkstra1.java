@@ -5,6 +5,7 @@ pq.add(vertexes[sourceIndex]);
 
 while (!pq.isEmpty()) {
 	Vertex curr = pq.poll();
+	if (curr.visited) continue;
 	
     // If there's a single known destination index, you can use a break 
     // statement here.
@@ -14,9 +15,7 @@ while (!pq.isEmpty()) {
 		if (vertexes[i].visited) continue;
 		
 		int newDistance = curr.distanceFromSource + distances[curr.index][i];
-			
-		if(newDistance < vertexes[i].distanceFromSource){
-			pq.remove(vertexes[i]);
+		if (newDistance < vertexes[i].distanceFromSource) {
 			vertexes[i].distanceFromSource = newDistance;
 			pq.add(vertexes[i]);
 			vertexes[i].prev = curr.index;
