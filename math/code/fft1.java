@@ -1,3 +1,4 @@
+// From the Tokyo hack pack.
 static void fft(int sign, double[] real, double[] imag) {
 	int n = real.length, d = Integer.numberOfLeadingZeros(n) + 1;
 	double theta = sign * 2 * Math.PI / n;

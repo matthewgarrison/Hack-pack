@@ -15,6 +15,14 @@ Khan's algorithm:
 
 You can use a PriorityQueue (sorting on index) to get the lexographically first toposort.
 
+\subsection*{Trees}
+
+Diameter: longest path in the tree. Procedure to find it: run a BFS starting at an arbitrary node. Then, run a second BFS starting at the last node you visited in the first BFS. The largest distance found in the second BFS is the diameter. This finds the diameter in terms of edges - to find it in terms of nodes, add 1.
+
+Center: the node that minimizes remoteness from all other nodes (ie. it minimizes the maximum distance to any node). If the diameter is odd (when edge-counting; if node-counting, when it's even), there will be two centers. The center will be the node(s) with distance \inline{diameter/2} after the second BFS.
+
+Centroid: if you remove this node, the maximum size components remaining are minimized
+
 \subsection*{Two-coloring}
 
 \textit{Runtime: O(n)}
