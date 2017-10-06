@@ -16,26 +16,22 @@ Binary search for the last \inline{true} value. The answer is at \inline{lo-1}. 
 
 \lstinputlisting{general/code/binternsearch3.java}
 
-You can also search with \inline{compareTo()}:
+You can also do a binary search on floating point numbers. Basically, you go for repetition, instead of checking if lo exceeds hi. This is most often used when binary searching a function. The number of repetitions you need varies depending on the problem, but 100 is often enough. Make sure to stay within the time limit.
 
 \lstinputlisting{general/code/binternsearch4.java}
 
-You can also do a binary search on floating point numbers. Basically, you go for repetition, instead of checking if lo exceeds hi. This is most often used when binary searching a function. The number of repetitions you need varies depending on the problem, but 100 is often enough. Make sure to stay within the time limit.
-
-\lstinputlisting{general/code/binternsearch5.java}
-
 Alternatively (answer at \inline{lo}):
 
-\lstinputlisting{general/code/binternsearch6.java}
+\lstinputlisting{general/code/binternsearch5.java}
 
 \subsection*{Ternary search}
 
 A ternary search will find the lowest or highest value in a parabolic function. Like when using a binary search on floating points numbers, we go for repetition. Answer is at \inline{low}.
 
-\lstinputlisting{general/code/binternsearch7.java}
+\lstinputlisting{general/code/binternsearch6.java}
 
 Ternary search on integers:
 
-\lstinputlisting{general/code/binternsearch8.java}
+\lstinputlisting{general/code/binternsearch7.java}
 
 \newpage

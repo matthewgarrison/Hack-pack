@@ -90,19 +90,6 @@ If you also want the start and end indexes of the subsequence, use this version:
 
 To solve a 3x3 magic square, add up all the known numbers and divide by two. This is your target number. Then, for every blank square, subtract the sum of the non-blank squares in that row/column/diagonal from the target number to get your answer.
 
-\subsection*{Pigeonhole principle}
-
-The pigeonhole principle states that if $k$ objects are placed into $n$ boxes, then at least one box must hold at least $\lceil \frac{n}{k} \rceil$ objects.
-
-\subsection*{Prime factorization}
-
-For prime factorization, first create the prime sieve. Then for each prime number, repeated divide num by that prime until it is no longer divisible by the current prime.
-
-\subsection*{Pythagorean triple}
-
-A Pythagorean Triple is 3 numbers, a, b, c, such that $a^2 + b^2 = c^2$. For all Pythagorean Triples, there exist positive integers x and y, with x $>$ y, such that:
-$$a = x^2 - y^2 \formsep b = 2xy \formsep c = x^2 + y^2$$
-
 \subsection*{Range sums}
 
 To quickly compute the sum of the values of an array over a range, you can use a running sum array. For each index, the value in the array at the index will be the sum of all the values before that index plus the value in the original array at that index. Using 1-based indexes for the running sum array is better, so that you don’t need a special case for when a = 0.

@@ -1,8 +1,7 @@
-double lo = 0, hi = Math.PI, ans = -1;
+double lo = 0, hi = Math.PI;
 for (int i = 0; i < 100; i++) {
 	double mid = lo + (hi - lo)/2.0;
-	double val = formula(mid);
-	if (equals(val, key)) { ans = mid; break; }
-	else if (val > key) hi = mid;
+	double ans = formula(mid);
+	if (ans > key) hi = mid;
 	else lo = mid;
 }

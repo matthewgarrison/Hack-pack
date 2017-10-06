@@ -1,4 +1,4 @@
-static class FenwickTree {
+class FenwickTree {
 	int size, ft[];
 	public FenwickTree(int n) {
 		this.ft = new int[n+1];

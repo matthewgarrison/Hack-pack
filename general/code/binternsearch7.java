@@ -1,7 +1,5 @@
-double low = 0, high = Math.PI;
-for (int i = 0; i < 100; i++) {
-	double lowThird = ((2 * low) + high) / 3;
-	double highThird = (low + (2 * high)) / 3;
-	if (calc(lowThird) > calc(highThird)) low = lowThird;
-	else high = highThird;
+while(lo < hi) {
+    int mid = (lo + hi) >> 1;
+    if (calc(mid) > calc(mid+1)) hi = mid;
+    else lo = mid+1;
 }

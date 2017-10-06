@@ -5,7 +5,7 @@
 \setlength{\parindent}{0pt}
 \renewcommand{\indent}{\hspace*{\tempindent}}
 
-\usepackage{multicol, framed, amsmath, graphicx, datetime2, fancyhdr, listings, courier, accsupp}
+\usepackage{multicol, amsmath, graphicx, datetime2, fancyhdr, listings, courier}
 \usepackage[letterpaper, portrait, margin=1in]{geometry}
 \usepackage[parfill]{parskip}
 
@@ -14,9 +14,6 @@
 \newcommand{\divides}{\text{ } | \text{ }}
 \newcommand{\formsep}{\indent \Big\rvert \indent}
 \renewcommand{\labelitemii}{$^{\circ}$}
-\renewcommand{\thelstnumber}{
-    \protect\BeginAccSupp{ActualText={}}\arabic{lstnumber}\protect\EndAccSupp{}
-}
 \newcommand*{\myfont}{\fontfamily{pcr}\selectfont}
 \DeclareTextFontCommand{\inline}{\myfont}
 
@@ -68,13 +65,14 @@
 \input{algorithms/permsandcombs.tex}
 \input{algorithms/subsetsum.tex}
 
-\input{datastructs/fenwicktree.tex}
 \input{datastructs/disjointset.tex}
+\input{datastructs/fenwicktree.tex}
 \input{datastructs/misc.tex}
 
 \input{math/baseconversion.tex}
 \input{math/euler.tex}
 \input{math/fastexpo.tex}
+\input{math/fft.tex}
 \input{math/fibonacci.tex}
 \input{math/gcdlcmeea.tex}
 \input{math/matrices.tex}

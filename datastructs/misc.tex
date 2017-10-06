@@ -4,18 +4,17 @@
 
 \textbf{Maps}
 
-A class that implements the Map interface allows you to map Keys to Values. Each Key can map to at most one Value (no duplicate Keys), but duplicate Values are possible. If you wish to use a custom class as Keys, then the class needs to implement \inline{equals()} and \inline{hashCode()}.
+If you wish to use a custom class as Keys, then the class needs to implement \inline{equals()} and \inline{hashCode()}.
 
 A \inline{TreeMap} sorts the Keys according to their natural ordering or a provided Comparator. Operations are mostly \textit{O(log(n))}.
 
 A \inline{LinkedHashMap} orders the Keys according to the order in which they were inserted. "Note that insertion order is not affected if a key is re-inserted into the map. (A key k is reinserted into a map m if \inline{m.put(k, v)} is invoked when \inline{m.containsKey(k)} would return true immediately prior to the invocation.)" Operations are mostly \textit{O(1)} (slightly slower than \inline{HashMap}, except for iteration, which is \textit{O(n)}).
 
-A \inline{HashMap} orders the Keys randomly. Operations are mostly \textit{O(1)} (worst case \textit{O(log(n))}), though iteration is \textit{O(n+capacity)}.
+A \inline{HashMap} orders the Keys randomly. Operations are mostly \textit{O(1)} (worst case \textit{O(n)}), though iteration is \textit{O(n+capacity)}.
 
 Iterates over the values in the map, where K and V are the types of the Keys and Values in the map:
 
 \lstinputlisting{datastructs/code/misc_builtin1.java}
-
 
 \textbf{Sets}
 
@@ -26,5 +25,14 @@ To iterate over the elements of a Set, you can use the Iterator returned by \inl
 \subsection*{Edge (Dinic's)}
 
 \lstinputlisting{datastructs/code/misc_edge1.java}
+
+\subsection*{FastScanner}
+
+\lstinputlisting{datastructs/code/misc_fastscanner1.java}
+
+\subsection*{Intervals}
+
+\lstinputlisting{datastructs/code/misc_intervals1.java}
+
 
 \newpage
