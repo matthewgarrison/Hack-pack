@@ -2,11 +2,11 @@
 
 \textit{Runtime: O(n log(n))}
 
-\inline{LEN} is the length of the arrays. \inline{LEN} must be at least double the degree of the polynomials being multiplied and a power of 2. 
+\inline{LEN} is the length of the arrays. \inline{LEN} must be at least double the degree of the polynomials being multiplied and a power of 2. You can use \inline{Integer.highestOneBit(n) << 2} to find \inline{LEN}.
 
 NOTE: The polynomial must be \textit{exactly} the one you wish to use. For example, if you are raising a polynomial to the k\textsuperscript{th} power, and you only care about indexes less than 50000, you must zero out all the indexes past 50000.
 
-Also, if you're squaring a polynomial, you can remove a \inline{fft()} call by multiplying \inline{ar} and \inline{ai} by themselves.
+If you're squaring a polynomial, you can remove a \inline{fft()} call by multiplying \inline{ar} and \inline{ai} by themselves. If you're raising a polynomial to the k\textsuperscript{th} power, it's faster to have \inline{n==0} return \inline{null} and put a special case into the \inline{multiply()} method.
 
 \lstinputlisting{math/code/fft1.java}
 

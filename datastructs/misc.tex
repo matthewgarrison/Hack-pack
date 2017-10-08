@@ -8,7 +8,7 @@ If you wish to use a custom class as Keys, then the class needs to implement \in
 
 A \inline{TreeMap} sorts the Keys according to their natural ordering or a provided Comparator. Operations are mostly \textit{O(log(n))}.
 
-A \inline{LinkedHashMap} orders the Keys according to the order in which they were inserted. "Note that insertion order is not affected if a key is re-inserted into the map. (A key k is reinserted into a map m if \inline{m.put(k, v)} is invoked when \inline{m.containsKey(k)} would return true immediately prior to the invocation.)" Operations are mostly \textit{O(1)} (slightly slower than \inline{HashMap}, except for iteration, which is \textit{O(n)}).
+A \inline{LinkedHashMap} orders the Keys according to the order in which they were inserted. "Note that insertion order is not affected if a key is re-inserted into the map. A special constructor is provided to create a linked hash map whose order of iteration is the order in which its entries were last accessed, from least-recently accessed to most-recently (access-order)." Operations are mostly \textit{O(1)} (slightly slower than \inline{HashMap}, except for iteration, which is \textit{O(n)}).
 
 A \inline{HashMap} orders the Keys randomly. Operations are mostly \textit{O(1)} (worst case \textit{O(n)}), though iteration is \textit{O(n+capacity)}.
 
