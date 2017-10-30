@@ -27,7 +27,7 @@ class WaveletTree {
 		}
 		left = new WaveletTree(leftArr); right = new WaveletTree(rightArr);
 	}
-	// Finds the k-th lowest number in [leftIdx, rightIdx).
+	// Finds the k-th lowest number in [leftIdx, rightIdx), where k is 1-indexed.
 	int kthLowest(int k, int leftIdx, int rightIdx){
 		if (low == high) return arr[leftIdx + k - 1];
 		if (leftCount[rightIdx] - leftCount[leftIdx] >= k) 
