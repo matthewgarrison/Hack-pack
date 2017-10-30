@@ -14,7 +14,9 @@ Alternatively: \inline{Integer.bitCount(n) == 1}
 
 \textbf{Check if \inline{x} and \inline{y} have opposite signs}: \inline{(x $\wedge$ y) < 0}
 
-\textbf{Determine powers of 2}: \inline{Integer.highestOneBit(n)} returns a number with a single one bit in the same position as the highest one bit in $n$. For example, \inline{Integer.highestOneBit(10) == 8} and \inline{Integer.highestOneBit(16) == 16}.
+\textbf{Determine powers of 2}: \inline{Integer.highestOneBit(n)} returns the largest power of 2 less than or equal to $n$ (ie. a number with a single one bit in the same position as the highest one bit in $n$). For example, \inline{Integer.highestOneBit(10) == 8} and \inline{Integer.highestOneBit(16) == 16}.
+
+Next power of two: \inline{Integer.highestOneBit(n) << 1;}
 
 \inline{Integer.numberOfTrailingZeros(Integer.highestOneBit(n))} will return the position of that one bit. This is also equivalent to $floor(log_2 (n))$
 
