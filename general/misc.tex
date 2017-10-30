@@ -18,6 +18,8 @@ This can also be extended to 3 dimensions: \inline{newCoord = z * rows * cols + 
 
 \subsection*{Finding k\textsuperscript{th} largest number in unsorted array}
 
+\textit{Runtime (\textbf{expected}): O(n)}
+
 This is zero-indexed (ie. the smallest number is k=0 and the largest is k=n-1).
 
 \lstinputlisting{general/code/misc_kthlargest1.java}
@@ -75,9 +77,9 @@ To find the shortest path a knight can take from $(x_1, y_1)$ to $(x_2, y_2)$ on
 
 \lstinputlisting{general/code/misc_knight1.java}
 
-If the chessboard is not infinite, you will need to check if the knight is moving from a corner of the board to the square that is one square away diagonally (the formula produces 2, but the answer is 4). \\
-If \inline{numRows == 4}, then when \inline{dy == 3 \&\& (x == 0 || x == numCols-1)}, the formula produces 3 instead of 5 (this applies if \inline{numCols == 4} or both are 4). \\
-If \inline{numRows == 3}, then when \inline{dx == 2 \&\& y == 1}, the formula produces 2 instead of 4 (this applies if \inline{numCols == 3}, but doesn't if both are 3; you start getting impossible cases).
+\indent If the chessboard is not infinite, you will need to check if the knight is moving from a corner of the board to the square that is one square away diagonally (the formula produces 2, but the answer is 4). \\
+\indent If \inline{numRows == 4}, then when \inline{dy == 3 \&\& (x == 0 || x == numCols-1)}, the formula produces 3 instead of 5 (this applies if \inline{numCols == 4} or both are 4). \\
+\indent If \inline{numRows == 3}, then when \inline{dx == 2 \&\& y == 1}, the formula produces 2 instead of 4 (this applies if \inline{numCols == 3}, but doesn't if both are 3; you start getting impossible cases).
 
 
 \subsection*{Max Contiguous Subsequent Sum (MCSS)}
@@ -135,7 +137,7 @@ Fill an ArrayList with the Time objects, sort it, and run through it.
 If you're getting stack overflow:
 
 \begin{itemize}
-    \item Extend Runnable
+    \item Implement Runnable
     \item Move everything from \inline{main()} to \inline{run()}
     \item In \inline{main()}, the only thing should be \inline{new Thread(null, new ClassName(), "", \\ stackSize).start();}
 \end{itemize}

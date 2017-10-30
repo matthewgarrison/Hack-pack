@@ -2,11 +2,7 @@
 
 \textbf{Greatest Common Divisor}
 
-Finds the greatest common divisor:
-
 \lstinputlisting{math/code/gcdlcmeea1.java}
-
-Alternatively:
 
 \lstinputlisting{math/code/gcdlcmeea2.java}
 
@@ -23,6 +19,10 @@ $$LCM(a, b) = \frac{ab}{GCD(a, b)}$$
 The "quotients by the GCD" are a and b divided by the GCD. They may have an incorrect sign. Similarly, if either a or b is zero and the other is negative, the greatest common divisor that is output is negative, and all the signs of the output must be changed.
 
 \subsection*{Misc}
+
+A set of integers S = \{$a_1, a_2, .... a_n$\} can also be called coprime or setwise coprime if the greatest common divisor of all the elements of the set is 1.
+
+If every pair in a set of integers is coprime, then the set is said to be pairwise coprime (or pairwise relatively prime, mutually coprime, or mutually relatively prime). Pairwise coprimality is a stronger condition than setwise coprimality; every pairwise coprime finite set is also setwise coprime, but the reverse is not true. For example, the integers 4, 5, 6 are setwise coprime, but they are not pairwise coprime (because gcd(4, 6) = 2).
 
 Problem: Given the equation $ax + by = c$ and the values of a, b, and c, determine if there exists a solution for x and y. \\
 \indent Solution: x and y exist if c is divisible by the GCD of a and b, because it means that a, b, and c are multiples of the same number.

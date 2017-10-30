@@ -1,5 +1,5 @@
 // From the Tokyo hack pack.
-static class Treap {
+class Treap {
 	final int key, val;
 	final double p;
 	final Treap left, right;
