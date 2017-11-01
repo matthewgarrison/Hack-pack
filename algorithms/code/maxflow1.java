@@ -36,33 +36,33 @@ static int dinics() {
 }
 static boolean bfs() {
 	Arrays.fill(dist, -1);
-	dist[source] = 0;
+	dist[sink] = 0;
 	queue.clear();
-	queue.add(source);
+	queue.add(sink);
 	while (!queue.isEmpty()) {
 		int curr = queue.poll();
+		if (curr == source) return true;
 		for (Edge e : vertexes[curr].edges) {
 			int v = e.to;
-			if (dist[v] == -1 && e.flow < e.cap) {
+			if (dist[v] == -1 && e.rev.flow < e.rev.cap) {
 				dist[v] = dist[curr] + 1;
 				queue.add(v);
 			}
 		}
 	}
-	// Returns whether we made it to the source from the sink.
-	return (dist[sink] > 0);
+	return (dist[source] > 0); // Did we reach the source?
 }
+
 static int dfs(int curr, int min) {
-	// The min parameter refers to the minimum residual capacity encountered 
-	// further up our call stack.
+	// min is the minimum residual capacity ecountered further up our call stack.
 	if (curr == sink) return min;
 	
 	int flow = 0;
 	for (Edge e : vertexes[curr].edges) {
 		int v = e.to;
-		// Check to make sure the path is not blocked and that this is a valid 
-		// path according to our level graph.
-		if (!blocked[v] && dist[v] == dist[curr] + 1 && e.cap > e.flow) {
+		// Check to make sure the path is not blocked and that this is a 
+		// valid path according to our level graph.
+		if (!blocked[v] && dist[v] == dist[curr] - 1 && e.cap > e.flow) {
 			// Assign as much flow as we can still fit along this path.
 			int push = dfs(v, Math.min(min - flow, e.cap - e.flow));
 			flow += push;
@@ -72,13 +72,11 @@ static int dfs(int curr, int min) {
 		// We can stop if we can't push any more flow.
 		if (flow == min) return flow;
 	}
-	/*
-	If what we pushed, that is, what was available further down the path, is 
-	not equal to what was available up our call stack, that means we filled up
-	a bottleneck along this path, so we can just mark it as blocked. This 
-	means speed-ups in the event that we go down this path again if we end up 
-	backtracking and trying a different route.
-	*/
+    // If what we pushed (ie. what's available further down the path) doesn't 
+    // equal min, then we filled a bottleneck along this path, so we can mark 
+    // it as blocked. This provides speedups if we go down this path again 
+    // because we backtracked and tried a different route. This is basically 
+    // memoizing our failures.
 	blocked[curr] = (flow != min);
 	return flow;
 }
