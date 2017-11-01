@@ -1,2 +1,2 @@
-# Hack-pack
-Repo for my LaTeX hack pack, for competitive progrmaming. You can find the most recently compiled version [here](Hack_pack.pdf).
+# Hack Pack
+The Hack Pack I use for competitive programming. Made with LaTeX. You can find the most recently compiled version [here](Hack_pack.pdf).
