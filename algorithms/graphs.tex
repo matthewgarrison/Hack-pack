@@ -1,8 +1,17 @@
 \startsection{Graphs}
 
-General graph algorithms.
+\subsection*{Bellman-Ford}
+
+Runtime: worst-case O($VE$) and best-case O($E$)
+
+Bellman-Ford will find the shortest-path from the source to all other vertexes in a weighted graph. This algorithm allows for negative edges (unlike Dijkstra's), but not negative cycles. You can also use it to detect negative cycles.
+
+\lstinputlisting{algorithms/code/graphs_bellman1.java}
+
 
 \subsection*{BFS and DFS}
+
+When constructing a level graph with a BFS, go from the sink to the source (ie. "backwards"). This will prune some unviable paths when you use them later.
 
 \subsection*{DFS-Ordering}
 
