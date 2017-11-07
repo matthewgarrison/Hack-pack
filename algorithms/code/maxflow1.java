@@ -6,13 +6,10 @@ static ArrayDeque<Integer> queue;
 static void createGraph(int n) {
 	// You can remove or change these two lines if you want source and sink to
 	// be different vertexes.
-	source = n++;
-	sink = n++;
-	numVertexes = n;
+	source = n++; sink = n++; numVertexes = n;
 	vertexes = new Vertex[n];
 	for (int i = 0; i < n; i++) vertexes[i] = new Vertex(i);
-	dist = new int[n];
-	blocked = new boolean[n];
+	dist = new int[n]; blocked = new boolean[n];
 	queue = new ArrayDeque<>();
 }
 static void addEdge(int v1, int v2, int cap) {
@@ -22,8 +19,7 @@ static void addEdge(int v1, int v2, int cap) {
 }
 // Only necessary if you are running Dinic's on the same graph multiple times.
 static void clear() {
-	for (Vertex v : vertexes)
-        for (Edge e : v.edges) e.flow = 0;
+	for (Vertex v : vertexes) for (Edge e : v.edges) e.flow = 0;
 }
 static int dinics() {
 	clear();
@@ -43,28 +39,25 @@ static boolean bfs() {
 		int curr = queue.poll();
 		if (curr == source) return true;
 		for (Edge e : vertexes[curr].edges) {
-			int v = e.to;
-			if (dist[v] == -1 && e.rev.flow < e.rev.cap) {
-				dist[v] = dist[curr] + 1;
-				queue.add(v);
+			if (dist[e.to] == -1 && e.rev.flow < e.rev.cap) {
+				dist[e.to] = dist[curr] + 1;
+				queue.add(e.to);
 			}
 		}
 	}
 	return (dist[source] > 0); // Did we reach the source?
 }
-
 static int dfs(int curr, int min) {
-	// min is the minimum residual capacity ecountered further up our call stack.
+	// min is the minimum residual capacity encountered further up our call stack.
 	if (curr == sink) return min;
 	
 	int flow = 0;
 	for (Edge e : vertexes[curr].edges) {
-		int v = e.to;
 		// Check to make sure the path is not blocked and that this is a 
 		// valid path according to our level graph.
-		if (!blocked[v] && dist[v] == dist[curr] - 1 && e.cap > e.flow) {
+		if (!blocked[e.to] && dist[e.to] == dist[curr] - 1 && e.cap > e.flow) {
 			// Assign as much flow as we can still fit along this path.
-			int push = dfs(v, Math.min(min - flow, e.cap - e.flow));
+			int push = dfs(e.to, Math.min(min - flow, e.cap - e.flow));
 			flow += push;
 			e.flow += push;
 			e.rev.flow -= push;
