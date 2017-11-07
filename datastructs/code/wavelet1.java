@@ -5,8 +5,7 @@ class WaveletTree {
 	public WaveletTree(int[] arr) {
 		this.arr = arr;
 		for (int i : arr) {	min = Math.min(min, i); max = Math.max(max, i); }
-		leftCount = new int[arr.length + 1];
-		rightCount = new int[arr.length + 1];
+		leftCount = new int[arr.length + 1]; rightCount = new int[arr.length + 1];
 		int mid = min + (max - min) / 2;
 		for (int i = 0; i < arr.length; i++) {
 			leftCount[i+1] = leftCount[i]; rightCount[i+1] = rightCount[i];
