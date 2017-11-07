@@ -2,19 +2,14 @@
 
 \textbf{Checklist of stupid mistakes}
 
-BitSets allocate memory as-needed, so you can get an \inline{OutOfBounds} exception if the index you're checking doesn't exist yet.
-
-Don't compare two \inline{Integers} with \inline{==}. This will work for values on $[-128, 127]$ because of caching, but will fail for values outside that range. (As long as at least one variable is an \inline{int}, you can use \inline{==}.)
-
-Infinity must be sufficiently large.
-
-Make sure you typed the sample data correctly.
-
-Memo table: checking the memo table at the start of the method, storing answers in the memo table before you return them, using the right indexes (ie. the current index, not \inline{n}).
-
-New line in \inline{printf()}.
-
-TreeSets can sometimes have a better in-practice runtime than HashSets.
+\indent BitSets allocate memory as-needed, so you can get an \inline{OutOfBounds} exception if the index you're checking doesn't exist yet. \\
+\indent Don't compare two \inline{Integers} with \inline{==}. This will work for values on $[-128, 127]$ because of caching, but will fail for values outside that range. (As long as at least one variable is an \inline{int}, you can use \inline{==}.) \\
+\indent FFT: The polynomial must be \textit{exactly} the one you wish to use. For example, if you are raising a polynomial to the k\textsuperscript{th} power, and you only care about indexes less than 50000, you must zero out all the indexes past 50000, every time you multiply. \\
+\indent Infinity must be sufficiently large. \\
+\indent Make sure you typed the sample data correctly. \\
+\indent Memo table: checking the memo table at the start of the method, storing answers in the memo table before you return them, using the right indexes (ie. the current index, not \inline{n}). \\
+\indent New line in \inline{printf()}. \\ 
+\indent TreeSets can sometimes have a better in-practice runtime than HashSets. 
 
 \textbf{Feasibility}
 
@@ -40,7 +35,7 @@ Toposort works on sparse graphs, V $\leq$ 100,000.
 
 \textbf{Techniques} \\ 
 Meet in the middle \\
-Can we eliminate a dimension of the memo table \\
+Can we eliminate a dimension of the memo table? \\
 Can we not consider some cases of the DP? \\
 Can we prune enough of the graph? \\
 Pre-compute functions (eg. trig functions) outside of the loop, when possible 

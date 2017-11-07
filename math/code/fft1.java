@@ -8,7 +8,7 @@ static void fft(int sign, double[] real, double[] imag) {
 			for (int j = i; j < n; j += m) {
 				int k = j + mh;
 				double xr = real[j] - real[k], xi = imag[j] - imag[k];
-				real[j] += real[k];
+				real[j] += real[k]; 
 				imag[j] += imag[k];
 				real[k] = wr * xr - wi * xi;
 				imag[k] = wr * xi + wi * xr;
