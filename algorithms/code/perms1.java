@@ -1,6 +1,5 @@
 static int[] findKthPerm(int[] data, int n, int k) {
 	int[] indices = new int[n];
-	
 	// Find the factoradic representation of k. 
 	int divisor = 1;
 	for (int place = 1; place <= n; place++) {
@@ -8,8 +7,7 @@ static int[] findKthPerm(int[] data, int n, int k) {
 		indices[n - place] = (k / divisor) % place;
 		divisor *= place;
 	}
-
-    // Use it to build the permuation.
+    // Use it to build the permutation.
 	for (int i = 0; i < n; i++) {
 		int index = indices[i] + i;
 		if(index != i) {
@@ -18,6 +16,5 @@ static int[] findKthPerm(int[] data, int n, int k) {
 			data[i] = temp;
 		}
 	}
-
 	return data;
 }

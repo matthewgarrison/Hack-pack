@@ -2,9 +2,9 @@
 
 \subsection*{Sieve of Eratosthenes}
 
-\textit{Runtime: O(n log(log(n)))}
+Runtime: O($n \text{ log(log} (n))$)
 
-The Sieve of Erastosthenes computes primes by “marking off” multiples of all the primes before the current prime. The limit of how large a number you can check with this is based on how large an array you can make. However, you can “double” the max number by using a Sieve that only checks odd numbers. If you need a really large sieve, use a BitSet.
+Space saving: only check odd numbers and/or use a BitSet.
 
 \lstinputlisting{math/code/sieves1.java}
 
@@ -16,11 +16,15 @@ You can count the number of prime factors a number has by changing lines 5-7 to:
 
 \subsection*{Totient sieve}
 
+Runtime: O($n \text{ log}(n)$)
+
 This can also be used as a prime sieve, because \inline{p} is prime if \inline{phi[p] == p-1}.
 
 \lstinputlisting{math/code/sieves3.java}
 
 \subsection*{Mod inverse sieve}
+
+Runtime: O($n$)
 
 The modular inverse of \inline{i} \textit{mod} \inline{m}.
 

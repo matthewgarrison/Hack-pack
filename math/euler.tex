@@ -1,10 +1,9 @@
 \startsection{Euler's totient function}
 
-$\phi (n)$, or $\varphi (n)$, counts the positive integers less than or equal to an integer $n$ that are coprime to $n$.
-
-Properties/formulas:
+$\phi (n)$, or $\varphi (n)$, is the number of integers $k$ in the range $1 \leq k \leq n$ that are coprime to $n$. Properties:
 \begin{itemize}
     \item ${\displaystyle \phi (n) = n \prod_{p \divides n} \Big(1 - \frac{1}{p} \Big)}$, where $p$ is the distinct prime factors of $n$
+    \item If $p$ is prime, $\phi (p) = p-1$
     \item $n^e \mymod{m} = n^{e \mymod{\phi(m)}} \mymod{m}$
     \item $\phi (nm) = \phi (n) \phi (m) \frac{d}{\phi (d)}$, where $d = gcd(n, m)$
     
@@ -19,14 +18,10 @@ Properties/formulas:
         \end{cases}$
         \item $\phi (n^m) = n^{m-1} \phi(n)$
     \end{itemize}
-    \item If $p$ is prime, $\phi (p) = p-1$
-    \item If $n$ is even, $\phi (2n) = 2 \phi(n)$
     \item Euler's theorem: if $a$ and $n$ are coprime, $a^{\phi (n)} \equiv 1 \mymod{n}$
     
     \begin{itemize}
-        \item The special case where $n$ is prime is Fermat's Little Theorem:
-    
-        $a^p \equiv a \mymod{p}$
+        \item The special case where $n$ is prime is Fermat's Little Theorem: $a^p \equiv a \mymod{p}$
     \end{itemize}
     \item If $p$ is prime and $k \geq 1$, then
     $\phi (p^k) = p^k - p^{k-1} = p^{k-1} (p - 1) = p^k \big( 1 - \frac{1}{p} \big)$
@@ -38,18 +33,13 @@ Properties/formulas:
     \item $\phi (lcm(n, m)) \phi( gcd(n, m)) = \phi (n) \phi (m)$
     \item $\phi (n)$ is even for $n \geq 3$. Moreover, if $n$ has $r$ distinct odd prime factors, $2^r \divides \phi(n)$.
     \item For any $a > 1$ and $n > 6$ such that 4 doesn't divide $n$, there exists an $l \geq 2n$ such that $l \divides \phi (a^n - 1)$
-    \item $\frac{\phi (n)}{n} = \frac{\phi (rad(n))}{rad(n)}$, where $rad(n)$ is the radical of n
-    \begin{itemize}
-        \item ${\displaystyle rad(n) = \prod_{p \divides n} p}$, where $p$ is the distinct prime factors of $n$
-    \end{itemize}
+    \item $\frac{\phi (n)}{n} = \frac{\phi (rad(n))}{rad(n)}$, where $rad(n)$ is the radical of $n$ and ${\displaystyle rad(n) = \prod_{p \divides n} p}$
     \item Menon's identity: ${\displaystyle \sum_{1 \leq k < n} gcd(k-1, n) = \phi (n) d(n)}$, where $d(n)$ is the number of divisors of $n$ and $gcd(k,n) = 1$
 \end{itemize}
 
-There's a sieve in the Sieves document, but if you want to directly calculate $\phi (n)$:
+There's a sieve in the Sieves document, but if you want to directly calculate $\phi (n)$ (2\textsuperscript{nd} version is faster):
 
 \lstinputlisting{math/code/euler1.java}
-
-Alternatively (and faster):
 
 \lstinputlisting{math/code/euler2.java}
 

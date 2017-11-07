@@ -1,0 +1,21 @@
+\startsection{Permutations}
+
+\subsection*{Finding the lexicographically  k\textsuperscript{th} permutation}
+
+Runtime: O($n^2$), where $n$ is the number of elements
+
+\inline{data} contains the input in lexicographically sorted order. \inline{k} is 0 indexed.
+
+\lstinputlisting{algorithms/code/perms1.java}
+
+\subsection*{Lexicographically next permutation}
+
+Runtime: O($n \text{ log}(n)$), where $n$ is the number of elements
+
+Assumes that the data will compare correctly, ie. \inline{data[i]} $<$ \inline{data[i+1]}. If this is not the case, you'll need a \inline{indexOf(n)}, which returns the index of \inline{n} in \inline{data}.
+
+To find the next permutation, we compute \inline{first}, the right-most element whose right element is larger than itself, and \inline{second}, the smallest element to the right of \inline{first} that is larger than \inline{first}. We then swap the elements at \inline{first} and \inline{second} and sort the elements to the right of \inline{first}.
+
+\lstinputlisting{algorithms/code/perms2.java}
+
+\newpage
