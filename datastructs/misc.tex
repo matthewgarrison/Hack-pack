@@ -6,11 +6,11 @@
 
 If you wish to use a custom class as Keys, then the class needs to implement \inline{equals()} and \inline{hashCode()}.
 
-A \inline{TreeMap} sorts the Keys according to their natural ordering or a provided Comparator. Operations are mostly \textit{O(log(n))}.
+A \inline{TreeMap} sorts the Keys according to their natural ordering or a provided Comparator. Operations are mostly O($\text{log}(n)$).
 
-A \inline{LinkedHashMap} orders the Keys according to the order in which they were inserted. "Note that insertion order is not affected if a key is re-inserted into the map. A special constructor is provided to create a linked hash map whose order of iteration is the order in which its entries were last accessed, from least-recently accessed to most-recently (access-order)." Operations are mostly \textit{O(1)} (slightly slower than \inline{HashMap}, except for iteration, which is \textit{O(n)}).
+A \inline{LinkedHashMap} orders the Keys according to the order in which they were inserted. "Note that insertion order is not affected if a key is re-inserted into the map. A special constructor is provided to create a linked hash map whose order of iteration is the order in which its entries were last accessed, from least-recently accessed to most-recently (access-order)." Operations are mostly O($1$) (slightly slower than \inline{HashMap}, except for iteration, which is O($n$)).
 
-A \inline{HashMap} orders the Keys randomly. Operations are mostly \textit{O(1)} (worst case \textit{O(n)}), though iteration is \textit{O(n+capacity)}.
+A \inline{HashMap} orders the Keys randomly. Operations are mostly O($1$) (worst case O($n$)), though iteration is O($n+capacity$).
 
 Iterates over the values in the map, where K and V are the types of the Keys and Values in the map:
 
@@ -32,10 +32,8 @@ To iterate over the elements of a Set, you can use the Iterator returned by \inl
 
 \subsection*{Interval}
 
+Runtime: O($\text{log}(n)$)
+
 \lstinputlisting{datastructs/code/misc_interval1.java}
-
-%\subsection*{Treap}
-
-%\lstinputlisting{datastructs/code/misc_treap1.java}
 
 \newpage
