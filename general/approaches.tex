@@ -1,54 +1,59 @@
-\startsection{Approaches}
+\startsection{Approaches and checklist}
 
-\subsection*{Brute force}
+\textbf{Checklist of stupid mistakes}
 
-\subsection*{Greedy}
+BitSets allocate memory as-needed, so you can get an \inline{OutOfBounds} exception if the index you're checking doesn't exist yet.
 
-\subsection*{Dynamic programming}
+Don't compare two \inline{Integers} with \inline{==}. This will work for values on $[-128, 127]$ because of caching, but will fail for values outside that range. (As long as at least one variable is an \inline{int}, you can use \inline{==}.)
 
-\subsection*{Feasibility}
+Infinity must be sufficiently large.
 
-1 second: $\leq$ 100 million operations; 5 seconds: $\leq$ billion; 30 seconds: $\leq$ 10 billion.
+Make sure you typed the sample data correctly.
+
+Memo table: checking the memo table at the start of the method, storing answers in the memo table before you return them, using the right indexes (ie. the current index, not \inline{n}).
+
+New line in \inline{printf()}.
+
+TreeSets can sometimes have a better in-practice runtime than HashSets.
+
+\textbf{Feasibility}
+
+1 second: $\leq 10^8$ operations \indent\indent
+5 seconds: $\leq 10^9$ operations
 
 Approximate size-to-runtime relationships:
 \begin{itemize}
-    \item n = 1,000,000: \textit{O(n log(n))}
-    \item n = 10,000: \textit{O(n\textsuperscript{2})}
+    \item $n \geq 10^7$: O($n$)
+    \item $n = [10^5, 10^6]$: O($n\text{ log}(n)$)
+    \item $n = 10^4$: O($n^2$)
+    \item $n = 10^3$: O($n^3$)
 \end{itemize}
 
-Secondly, you will get stack overflow if your stack is too large. It varies competition to competition, but you should aim for less than 5000 method calls.
+Stack size: it varies, but generally $\leq 5000$ method calls.
 
-Thirdly, your memory (eg. size of your array) should not exceed 50 million.
+Memory: $\leq 5*10^7$
 
-\textbf{Permutations}: You should only do permutations if n $<$ 13.
-
-\textbf{Graphs}
-
-Dense graph: E $\approx$ V\textsuperscript{2} \\
-Sparse graph: E $\approx$ V
-
-General matching works on sparse graphs, V $\leq$ 500. \\
 Bipartite matching works on sparse graphs, V $\leq$ 5000. \\
 Floyd-Warshal works on sparse and dense graphs, V $\leq$ 500. \\
 Dijkstra’s works on sparse and dense graphs, V $\leq$ 5000. \\
 Toposort works on sparse graphs, V $\leq$ 100,000.
 
-\textbf{Dynamic programming}
+\textbf{Techniques} \\ 
+Meet in the middle \\
+Can we eliminate a dimension of the memo table \\
+Can we not consider some cases of the DP? \\
+Can we prune enough of the graph? \\
+Pre-compute functions (eg. trig functions) outside of the loop, when possible 
 
-You can find the max amount of memory you’ll use by multiplying the bounds of each component of your state. (eg. For the knapsack problem, this is number of items * the weight limit). If it exceeds 50 million, you can try to save space by removing one item from your state. (eg. You can iterate over the same 1D array in the knapsack problem, instead of using an array that has a row for every item.)
-
-\textbf{2\textsuperscript{n} memory}
-
-Bitmask DP uses 2\textsuperscript{n} memory. For these and other, similar problems, n $\leq$ 25 (usually). If n is greater than that, try cutting the problem in half, and approaching the "center" of the problem from both ends.
-
-(For bitmask DP, the array is declared with size 2\textsuperscript{n}, so that 2\textsuperscript{n-1} can fit into the array.)
-
-\textbf{Ways to speed up a program}
-
-Use a FastScanner and a PrintWriter.
-
-Add all output to a StringBuilder and print it all at once, at the end of the program.
-
-Instead of sorting an ArrayList of custom objects, you can sort by a unique attribute (eg. a String), and hold the rest of the data in a HashMap. (Or use a TreeMap.)
+\textbf{Test case generation} \\
+Minimum sized case \\
+Maximum sized case \\
+Case that is specifically omitted from the sample \\
+Case where 1 item that is true of average cases doesn't hold \\
+Case with maximal answer \\
+Case with minimal answer \\
+Cases that test each line of code \\
+Cases that check overflow of intermediate computations \\
+Cases that check array out of bounds
 
 \newpage
