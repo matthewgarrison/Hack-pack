@@ -1,0 +1,31 @@
+\startsection{Infix, prefix, postfix}
+
+\subsection*{Infix to postfix (Shunting-yard algorithm}
+
+This implementation assume each number and operator is separated by spaces.
+
+\lstinputlisting{general/code/infix1.java}
+
+\subsection*{Postfix to infix}
+
+Converts postfix to infix, with only the necessary parenthesis. If you want a fully parenthesized equation, you can just use Strings and \inline{String combo = "( "+two+" "+token+" "+one+" )";}
+
+\lstinputlisting{general/code/infix2.java}
+
+\subsection*{Prefix}
+
+Infix to prefix: reverse the expression, replace every \inline{'('} with \inline{')'} and vice-versa, run Shunting-Yard, then reverse the result.
+
+Prefix to infix: reverse the expression, run the postfix to infix code, reverse the result, and then replace every \inline{'('} with \inline{')'} and vice-versa.
+
+\subsection*{Evaluation}
+
+Calculates the value of a postfix expression, which has spaces between numbers and operators.
+
+\lstinputlisting{general/code/infix3.java}
+
+Calculates the value of an infix expression.
+
+\lstinputlisting{general/code/infix4.java}
+
+\newpage
