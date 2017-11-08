@@ -22,6 +22,14 @@ Iterates over the values in the map, where K and V are the types of the Keys and
 
 To iterate over the elements of a Set, you can use the Iterator returned by \inline{set.iterator()} or with a for-each loop.
 
+\subsection*{Disjoint Set} 
+
+Runtime: \\
+\indent Construction: O($n$) \\
+\indent Union-find (with path compression): O($\alpha (n)$), where $\alpha (n)$ is the inverse Ackermann function
+
+\lstinputlisting{datastructs/code/misc_disjointset1.java}
+
 \subsection*{Edge (Dinic's)}
 
 \lstinputlisting{datastructs/code/misc_edge1.java}
