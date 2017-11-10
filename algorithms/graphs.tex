@@ -8,7 +8,6 @@ Bellman-Ford will find the shortest-path from the source to all other vertexes i
 
 \lstinputlisting{algorithms/code/graphs_bellman1.java}
 
-
 \subsection*{BFS and DFS}
 
 When constructing a level graph with a BFS, go from the sink to the source (ie. "backwards"). This will prune some unviable paths when you use them later.
@@ -84,7 +83,7 @@ Articulation point (AKA cut vertex): removing this vertex disconnects the graph
 
 Biconnected: removing any single vertex does not disconnect the graph (ie. it doesn't contain any articulation points)
 
-Bridge: removing this edge disconnects the graph
+Bridge: removing this edge disconnects the graph. The endpoints of a bridge are articulation points unless they both have degree 1.
 
 Cycle graph (C\subscript{n}): the graph with n vertexes containing a single cycle (AKA just a circle). C\subscript{0}, C\subscript{1}, and C\subscript{2} are not defined.
 
