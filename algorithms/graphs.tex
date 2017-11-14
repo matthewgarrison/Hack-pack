@@ -100,8 +100,9 @@ Path: list of vertexes in which successive vertexes are connected by edges in th
 Khan's algorithm: 
 \begin{itemize}
     \item Take all the vertexes with indegree 0 and put them into a queue.
-    \item Remove a vertex and subtract the indegree of all its neighbors by 1. If any of those neighbors now have indegree 0, add them to the queue.
+    \item Dequeue a vertex, increment visited count, and decrement the indegree of all its neighbors. If any of those neighbors now have indegree 0, enqueue it.
     \item Repeat until the queue is empty.
+    \item If \inline{numVisited != numVertexes}, there is not a valid TopoSort.
 \end{itemize}
 
 You can use a PriorityQueue (sorting on index) to get the lexographically first toposort.
