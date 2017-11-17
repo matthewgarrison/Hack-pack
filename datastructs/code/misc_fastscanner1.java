@@ -17,10 +17,4 @@ class FastScanner {
 	int nextInt() throws IOException {
 		return Integer.parseInt(next());
 	}
-	long nextLong() throws Exception {
-		return Long.parseLong(next());
-	}
-	double nextDouble() throws Exception {
-		return Double.parseDouble(next());
-	}
 }
