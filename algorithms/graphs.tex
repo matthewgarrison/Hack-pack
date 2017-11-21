@@ -73,11 +73,11 @@ Negative edge weights are allowed, but negative cycles are not.
 
 The path array is only used if you need to find the actual path from $i$ to $j$. Once the algorithm has been run, the value at $(i, j)$ is the index of the last vertex reached before $j$ when travelling on the shortest path from $i$ to $j$. For example, if the path from i to j is [ i $->$ 5 $->$ 3 $->$ 2 $->$ j ], the value at $(i, j)$ will be 2. You initialize the array with \inline{path[i][j] = (adj[i][j] == INIFINITY ? -1 : i);}.
 
-\lstinputlisting{algorithms/code/floydwarshall2.java}
+\lstinputlisting{algorithms/code/graphs_fw1.java}
 
 To find the actual path from index i to index j using the path array, you need to work backwards. You can add them to an ArrayList, and then print it out backwards.
 
-\lstinputlisting{algorithms/code/floydwarshall3.java}
+\lstinputlisting{algorithms/code/graphs_fw2.java}
 
 \subsection*{Hamiltonian paths/cycles} 
 
