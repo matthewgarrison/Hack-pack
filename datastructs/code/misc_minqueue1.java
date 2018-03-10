@@ -11,7 +11,5 @@ class MinQueue<E extends Comparable<E>> {
 		if (val.compareTo(mins.peekFirst()) == 0) mins.pollFirst();
 		return val;
 	}
-	E min() {
-		return mins.peekFirst();
-	}
+	E min() { return mins.peekFirst(); }
 }

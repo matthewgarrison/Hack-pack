@@ -7,9 +7,8 @@ String convert(String infix) {
 		int opIndex = OPERATORS.indexOf(c);
 		// Check if it is an operator.
 		if (opIndex != -1) {
-			if (stack.isEmpty()) {
-				stack.addFirst(opIndex);
-			} else {
+			if (stack.isEmpty()) stack.addFirst(opIndex);
+			else {
 				// While the operator on the stack has higher precedence than the
 				// current operator, add the operator on the stack to the output.
 				while (!stack.isEmpty()) {
@@ -21,24 +20,18 @@ String convert(String infix) {
 				}
 				stack.addFirst(opIndex);
 			}
-		} else if (c == '(') {
-			// -2 represents a '('.
-			stack.addFirst(-2);
-		} else if (c == ')') {
+		} else if (c == '(') stack.addFirst(-2); // -2 represents a '('.
+		else if (c == ')') {
 			// Add operators to the output string until you reach a '(' on 
 			// the stack.
 			int n;
 			while ((n = stack.pollFirst()) != -2)
 				output.append(operators.charAt(n)).append(' ');
-		} else {
-			// Add the number to the output string.
-			output.append(token).append(' ');
-		}
+		} else output.append(token).append(' ');
 	}
 	// Add any remaining operators on the stack to the output string.
-	while (!stack.isEmpty()) {
+	while (!stack.isEmpty())
         output.append(operators.charAt(stack.pollFirst())).append(' ');
-	}
 	// Remove trailing spaces and return it.
 	return output.deleteCharAt(output.length()-1).toString();
 }

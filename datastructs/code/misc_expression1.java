@@ -2,8 +2,7 @@ class Expression {
 	String expression;
 	int prec;
 	public Expression(String s) {
-		this.expression = s;
-		this.prec = 100;
+		this.expression = s;  this.prec = 100;
 	}
 	public Expression(Expression left, Expression right, char op) {
 		this.prec = OPERATORS.indexOf(op) / 2;
@@ -13,7 +12,5 @@ class Expression {
 			right.expression = "( " + right.expression +  " )";
 		this.expression = left + " " + op + " " + right;
 	}
-	public String toString() {
-		return this.expression;
-	}
+	public String toString() { return this.expression; }
 }

@@ -7,3 +7,4 @@ for (int i = 0; i < edges.size() && edgeCount < numNodes - 1; i++) {
 		mstWeight += edges.get(i).cost;
 	}
 }
+if (edgeCount != numNodes-1) { /* Graph is not connected */ }

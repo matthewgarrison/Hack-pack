@@ -8,10 +8,7 @@ class Intervals {
     void paint(int s, int t, int c) {
         int p = get(t);
         map.subMap(s, t).clear();
-        map.put(s, c);
-        map.put(t, p);
+        map.put(s, c);  map.put(t, p);
     }
-    int get(int k) {
-        return map.floorEntry(k).getValue();
-    }
+    int get(int k) { return map.floorEntry(k).getValue(); }
 }

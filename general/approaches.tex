@@ -4,7 +4,6 @@
 
 \indent BitSets allocate memory as-needed, so be careful when using \inline{.size()} for \inline{.get(fromIdx, toIdx)}. \\
 \indent Don't compare two \inline{Integers} with \inline{==}. This will work for values on $[-128, 127]$ because of caching, but will fail for values outside that range. (As long as at least one variable is an \inline{int}, you can use \inline{==}.) \\
-\indent FFT: The polynomial must be \textit{exactly} the one you wish to use. For example, if you are raising a polynomial to the k\textsuperscript{th} power, and you only care about indexes less than 50000, you must zero out all the indexes past 50000, every time you multiply. \\
 \indent Infinity must be sufficiently large. \\
 \indent Make sure you typed the sample data correctly. \\
 \indent Memo table: checking the memo table at the start of the method, storing answers in the memo table before you return them, using the right indexes (ie. the current index, not \inline{n}). \\
@@ -16,13 +15,11 @@
 1 second: $\leq 10^8$ operations \indent\indent
 5 seconds: $\leq 10^9$ operations
 
-Approximate size-to-runtime relationships:
-\begin{itemize}
-    \item $n \geq 10^7$: O($n$)
-    \item $n = [10^5, 10^6]$: O($n\text{ log}(n)$)
-    \item $n = 10^4$: O($n^2$)
-    \item $n = 10^3$: O($n^3$)
-\end{itemize}
+Approximate size-to-runtime relationships: \\
+\indent $n \geq 10^7$: O($n$) \\
+\indent $n = [10^5, 10^6]$: O($n\text{ log}(n)$) \\
+\indent $n = 10^4$: O($n^2$) \\
+\indent $n = 10^3$: O($n^3$)
 
 Stack size: it varies, but generally $\leq 5000$ method calls.
 

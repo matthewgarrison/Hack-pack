@@ -20,7 +20,7 @@ The DFS-Ordering of a tree orders the vertexes such that all of a vertex's child
 
 \subsection*{Eulerian paths/cycles}
 
-Eulerian path: a path that visits every vertex exactly once
+Eulerian path: a path that visits every edge exactly once
 
 Eulerian cycle (or circuit): a Eulerian path that is a cycle (ie. starts and ends at the same vertex)
 
@@ -28,13 +28,13 @@ Semi-Eulerian graph: a graph containing a Eulerian path
 
 Eulerian graph: a graph containing a Eulerian cycle
 
-Undirected: 
+Undirected graphs: 
 \begin{itemize}
     \item Eulerian cycle: iff there are no vertexes of odd degree
     \item Eulerian path: iff there are zero or two vertexes of odd degree (if two, those are the starting and ending vertexes)
 \end{itemize}
 
-Directed:
+Directed graphs:
 \begin{itemize}
     \item Eulerian cycle: iff every vertex has equal in-degree and out-degree and all those vertexes belong to a single connected component
     \item Eulerian path: iff at most one vertex has $in - out = 1$, at most one vertex has $out - in = 1$, every other vertex has equal in-degree and out-degree, and all vertexes belong to a single component in the equivalent undirected graph
@@ -99,11 +99,17 @@ Biconnected: removing any single vertex does not disconnect the graph (ie. it do
 
 Bridge: removing this edge disconnects the graph. The endpoints of a bridge are articulation points unless they both have degree 1.
 
+Chromatic number of a graph G ($\chi(G)$): the minimum number of colors needed to color all vertexes in G such that no two adjacent vertexes have the same color (ie. the smallest k such that G is k-colorable) \\
+\indent $\chi(C_n)$ is 3 if n is odd and 2 otherwise \\
+\indent $\chi(K_5)$ = 5
+
 Cycle graph (C\subscript{n}): the graph with n vertexes containing a single cycle (AKA just a circle). C\subscript{0}, C\subscript{1}, and C\subscript{2} are not defined.
 
 Complete graph (K\subscript{n}): the graph with n vertexes and every possible edge (not a multigraph). K\subscript{n} has $\binom{n}{2}$ or $\frac{n(n-1)}{2}$ edges.
 
 Empty graph ( $\overline{K_n}$ ): the graph with n vertexes and no edges
+
+k-colorable: a graph whose vertexes can be colored with k or fewer colors such that no two adjacent vertexes have the same color
 
 k-connected: removing any k vertexes does not disconnect the graph
 

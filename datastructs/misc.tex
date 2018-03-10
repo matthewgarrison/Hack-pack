@@ -4,7 +4,7 @@
 
 \textbf{Maps}
 
-If you wish to use a custom class as Keys, then the class needs to implement \inline{equals()} and \inline{hashCode()}.
+If you wish to use a custom class as Keys, then the class needs to implement \inline{equals()} and \inline{hashCode()}. (Eclipse can generate those for you.)
 
 A \inline{TreeMap} sorts the Keys according to their natural ordering or a provided Comparator. Operations are mostly O($\text{log}(n)$).
 
@@ -20,7 +20,7 @@ Iterates over the values in the map, where K and V are the types of the Keys and
 
 \inline{TreeSet} and \inline{LinkedHashSet} have the same ordering as \inline{TreeMap} and \inline{LinkedHashMap}.
 
-To iterate over the elements of a Set, you can use the Iterator returned by \inline{set.iterator()} or with a for-each loop.
+Classical set operations: intersection is done with \inline{Collection.retainAll}; subtraction with \\ \inline{Collection.removeAll}; union with  \inline{Collection.addAll}.
 
 \subsection*{Disjoint Set} 
 
@@ -39,6 +39,8 @@ Runtime: \\
 \lstinputlisting{datastructs/code/misc_expression1.java}
 
 \subsection*{FastScanner}
+
+NOTE: You should \textbf{not} have an extra \inline{nextLine()} call when transitioning from \inline{nextInt()} to \inline{nextLine()}. (This is different from a Scanner, where you do.)
 
 \lstinputlisting{datastructs/code/misc_fastscanner1.java}
 

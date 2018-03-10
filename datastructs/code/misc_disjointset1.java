@@ -9,12 +9,11 @@ class DisjointSet {
         return parents[idx];
 	}
 	boolean union(int index1, int index2) {
-		int root1 = findRoot(index1);
-		int root2 = findRoot(index2);
+		int root1 = findRoot(index1), root2 = findRoot(index2);
 		if (root1 == root2) return false;
 		if (ranks[root1] < ranks[root2]) parents[root1] = root2;
 		else if (ranks[root1] > ranks[root2]) parents[root2] = root1;
-		else { parents[root1] = root2; ranks[root2]++; }
+		else { parents[root1] = root2;  ranks[root2]++; }
         return true;
 	}
 }

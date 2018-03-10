@@ -7,10 +7,8 @@ static boolean isPrime(int n) {
 	else {
         // Only numbers of the form 6k - 1 and 6k + 1 can be prime (though 
         // they are not guaranteed to be prime). 
-        for(int i = 6; i*i <= n; i += 6) {
-            if (n % (i-1) == 0) return false;
-            if (n % (i+1) == 0) return false;
-        }
+        for (int i = 6; i*i <= n; i += 6) 
+            if (n % (i-1) == 0 || n % (i+1) == 0) return false;
 		return true;
 	}
 }

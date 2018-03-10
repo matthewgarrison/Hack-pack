@@ -8,17 +8,11 @@ If the graph is not connected, then the correct algorithm to use depends on what
 
 \textit{Runtime: O(E log(E))}
 
-If \inline{edgeCount != numNodes-1} at the end, then the graph is not connected.
-
 \lstinputlisting{algorithms/code/mst1.java}
 
 \subsection*{Prim's}
 
 \textit{Runtime: O(E log(E))}
-
-(This algorithm uses two \inline{Edge} objects to represent a single undirected edge, one for each vertex in the edge (ie. $v_1$ -$> v_2$ and $v_2$ -$> v_1$).)
-
-If \inline{vertexCount != numNodes} at the end, then the graph is not connected.
 
 \lstinputlisting{algorithms/code/mst2.java}
 
