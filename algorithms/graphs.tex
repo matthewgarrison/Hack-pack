@@ -12,7 +12,7 @@ Bellman-Ford will find the shortest-path from the source to all other vertexes i
 
 When constructing a level graph with a BFS, go from the sink to the source (ie. "backwards"). This will prune some unviable paths when you use them later.
 
-\subsection*{DFS-Ordering}
+\subsection*{Euler tour technique (DFS-Ordering)}
 
 The DFS-Ordering of a tree orders the vertexes such that all of a vertex's children are on \inline{[startIdx, endIdx]} (and the vertex itself is at \inline{startIdx}). This version (with initial \inline{idx=-1}) will produce indexes on \inline{[0, numVertexes-1]}. You can start with \inline{idx=0} to produce indexes on \inline{[1, numVertexes]}.
 
