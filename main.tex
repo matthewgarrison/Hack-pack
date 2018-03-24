@@ -10,6 +10,10 @@
 \usepackage[parfill]{parskip}
 
 \newcommand{\subscript}[1]{$_{\text{#1}}$}
+\let\vec\overrightarrow
+\newcommand{\ivec}{\boldsymbol{\hat{\imath}}}
+\newcommand{\jvec}{\boldsymbol{\hat{\jmath}}}
+\newcommand{\kvec}{\boldsymbol{\hat{k}}}
 \newcommand{\mymod}[1]{\text{ } ( \text{mod } #1 )}
 \newcommand{\divides}{\text{ } | \text{ }}
 \newcommand{\formsep}{\indent \Big\rvert \indent}
@@ -80,5 +84,6 @@
 \input{math/misc.tex}
 \input{math/sequences.tex}
 \input{math/sieves.tex}
+\input{math/vector.tex}
 
 \end{document}

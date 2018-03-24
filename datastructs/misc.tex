@@ -2,6 +2,16 @@
 
 \subsection*{Built-in data structures}
 
+\textbf{BitSets}
+
+Left-shift a BitSet:
+
+\lstinputlisting{datastructs/code/misc_bitset1.java}
+
+To right-shift, change the size of \inline{arr} to \inline{(bs.length() - amt + 63) / 64} and lines 6-7 to:
+
+\lstinputlisting{datastructs/code/misc_bitset2.java}
+
 \textbf{Maps}
 
 If you wish to use a custom class as Keys, then the class needs to implement \inline{equals()} and \inline{hashCode()}. (Eclipse can generate those for you.)
@@ -44,11 +54,15 @@ NOTE: You should \textbf{not} have an extra \inline{nextLine()} call when transi
 
 \lstinputlisting{datastructs/code/misc_fastscanner1.java}
 
-\subsection*{Interval}
+\subsection*{Intervals}
 
 Runtime: O($\text{log}(n)$)
 
-\lstinputlisting{datastructs/code/misc_interval1.java}
+\lstinputlisting{datastructs/code/misc_intervals1.java}
+
+If you want consecutive intervals with the same value to combine, change \inline{paint()} to:
+
+\lstinputlisting{datastructs/code/misc_intervals2.java}
 
 \subsection*{MinQueue}
 
