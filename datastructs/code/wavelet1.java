@@ -19,7 +19,7 @@ class WaveletTree {
 			if (rightCount[i] == rightCount[i+1]) leftArr[leftCount[i]] = arr[i];
 			else rightArr[rightCount[i]] = arr[i];
 		}
-		left = new WaveletTree(leftArr); right = new WaveletTree(rightArr);
+		left = new WaveletTree(leftArr);  right = new WaveletTree(rightArr);
 	}
 	// Counts the number of values on [lo, hi] in indexes [leftIdx, rightIdx).
 	int count(int lo, int hi, int leftIdx, int rightIdx) {

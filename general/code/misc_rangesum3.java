@@ -1,5 +1,5 @@
-int[][] arr = new int[height][width];
-runSum = new int[height+1][width+1];
+int[][] arr = new int[height][width], runSum = new int[height+1][width+1];
+// Add the rows.
 for (int y = 0; y < height; y++) {
 	for (int x = 0; x < width; x++) {
 		arr[y][x] = scan.nextInt();

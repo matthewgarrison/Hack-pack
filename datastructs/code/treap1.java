@@ -4,11 +4,8 @@ class Treap {
 	final double p;
 	final Treap left, right;
 	Treap(int key, int val, double p, Treap left, Treap right) {
-		this.key = key;
-		this.val = val;
-		this.p = p;
-		this.left = left;
-		this.right = right;
+		this.key = key;  this.val = val;  this.p = p;
+		this.left = left;  this.right = right;
 	}
 	Treap change(Treap left, Treap right) {
 		return new Treap(key, val, p, left, right);

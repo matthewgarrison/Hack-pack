@@ -24,6 +24,8 @@ Lowest one bit (there's also an \inline{Integer} method): \inline{n \& (-n)}
 
 \textbf{Undoing XOR}: if \inline{c = a $\wedge$ b}, then \inline{a = c $\wedge$ b} and \inline{b = c $\wedge$ a}
 
+In other words, \inline{a = (a $\wedge$ b) $\wedge$ b}
+
 \textbf{Toggle bitmasks}: If you have a bitmask and you want to toggle the n\textsuperscript{th} bit, \inline{mask $\wedge$= 1 << n;}
 
 \textbf{Perfect square check}:

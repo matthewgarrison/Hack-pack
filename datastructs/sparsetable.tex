@@ -1,0 +1,14 @@
+\startsection{Sparse Table}
+
+Runtime: \\
+\indent Construction: O($n\text{ log}(n)$) \\
+\indent Query (idempotent function): O($1$) \\
+\indent Query (non-idempotent function): O($\text{log}(range)$)
+
+Sparse tables can compute any associative function over a range of values.
+
+Note: \lstinline{logCabin[i][j]} contains the "combination" of $2^i$ values, and to find it you combine \lstinline{logCabin[i-1][j]} and \lstinline{logCabin[i-1][j + (1<<(i-1))]}
+
+\lstinputlisting{datastructs/code/sparsetable1.java}
+
+\newpage
