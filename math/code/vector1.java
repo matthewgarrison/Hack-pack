@@ -43,8 +43,8 @@ class Vector implements Comparable<Vector> {
 		return theta;
 	}
 	// Sorts the vectors radially, without having to compute the angles. Useful 
-	// problems where using the angles is too imprecise, so we just store x and 
-	// as longs.
+	// for problems where using the angles is too imprecise, so we just store x 
+	// and y as longs.
 	public int compareTo(Vector v) {
 		int res = 0;
 		if (this.x < 0) res += (this.y >= 0 ? 1 : 2);
@@ -54,8 +54,9 @@ class Vector implements Comparable<Vector> {
 		if (res == 0) return -(int)Math.signum(this.det(v));
 		return res;
 	}
-	// Radially compares, but goes "across" the positive x-axis. (If it returns 
-	// 0, make sure to check if p is in the same or opposite direction of this 
-	// vector.)
+	// Radially compares, but goes "across" the positive x-axis. Returns 1 if 
+	// a is behind b, -1 if a is ahead of b, and 0 if they're parallel. (If 
+	// parallel, be sure to check if p is in the same or opposite direction 
+	// of this vector.)
 	int radialCompareTo(Vector v) { return (int)Math.signum(this.det(v)); }
 }

@@ -1,26 +1,32 @@
 \documentclass{article}
 
+% Disable automatic indenting
 \newlength\tempindent
 \setlength{\tempindent}{\parindent}
 \setlength{\parindent}{0pt}
 \renewcommand{\indent}{\hspace*{\tempindent}}
 
-\usepackage{multicol, amsmath, graphicx, datetime2, fancyhdr, listings, courier}
-\usepackage[letterpaper, portrait, margin=1in]{geometry}
-\usepackage[parfill]{parskip}
+\usepackage{multicol, amsmath, graphicx, fancyhdr, listings, courier} % Multiple columns, math symbols and environments, images, fancy headers, code blocks, courier font
+\usepackage[letterpaper, portrait, margin=1in]{geometry} % Margins
+\usepackage[parfill]{parskip} % Makes the spacing between paragraphs bigger
+\usepackage{csquotes}\MakeOuterQuote{"} % Fix the quote marks (open and close curly quote marks were not properly aligned)
 
-\newcommand{\subscript}[1]{$_{\text{#1}}$}
-\let\vec\overrightarrow
+\newcommand{\subscript}[1]{$_{\text{#1}}$} % Non-math-mode subscript
+\let\vec\overrightarrow % Alias \overrightarrow to \vec (for vectors)
+% i, j, and k component of vectors
 \newcommand{\ivec}{\boldsymbol{\hat{\imath}}}
 \newcommand{\jvec}{\boldsymbol{\hat{\jmath}}}
 \newcommand{\kvec}{\boldsymbol{\hat{k}}}
-\newcommand{\mymod}[1]{\text{ } ( \text{mod } #1 )}
-\newcommand{\divides}{\text{ } | \text{ }}
-\newcommand{\formsep}{\indent \Big\rvert \indent}
-\renewcommand{\labelitemii}{$^{\circ}$}
-\newcommand*{\myfont}{\fontfamily{pcr}\selectfont}
+\newcommand{\mymod}[1]{\text{ } ( \text{mod } #1 )} % Better looking `mod`
+\newcommand{\divides}{\text{ } | \text{ }} % The divides symbol, with spaces on either side
+\newcommand{\formsep}{\indent \Big\rvert \indent} % Formula separator
+
+\renewcommand{\labelitemii}{$^{\circ}$} % Change the symbol for the second level of itemize
+% Define the `inline` command to use this font
+\newcommand*{\myfont}{\fontfamily{pcr}\selectfont} %
 \DeclareTextFontCommand{\inline}{\myfont}
 
+% Format code blocks
 \lstset{
 	language=Java,
 	basicstyle=\ttfamily,
@@ -34,6 +40,7 @@
 }
 
 \newcommand{\thetitle}{Hack Pack}
+% Table of contents
 \renewcommand*{\addcontentsline}[3]{\addtocontents{#1}{\protect\contentsline{#2}{#3}{}}}
 \renewcommand{\headrulewidth}{0pt}
 \newcommand{\startsection}[1]{\addcontentsline{toc}{section}{#1}\section*{#1}\setcounter{page}{1}\pagestyle{fancy}\fancyhf{}\rhead{#1 \thepage}}

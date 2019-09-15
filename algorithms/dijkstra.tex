@@ -4,6 +4,8 @@
 
 Dijkstra’s algorithm finds the shortest path from a single index to every other index. This algorithm will fail if any of the edges have a negative weight.
 
+Use a TreeSet instead of a PriorityQueue? Using a TreeSet gets you a O(log$(n)$) \lstinline{.remove()}. The object you're inserting needs to break ties (use something consistent, though it can be arbitrary, like the index), since TreeSet uses \lstinline{.compareTo()} to check for repeated values, not \lstinline{.equals()}.
+
 \lstinputlisting{algorithms/code/dijkstra1.java}
 
 \newpage

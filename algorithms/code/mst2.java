@@ -9,6 +9,7 @@ while (!pq.isEmpty()) {
 	mst.add(curr.idx);
 	used[unusedVert] = true;
 	pq.addAll(verts[unusedVert].edges);
+	mstWeight += curr.cost;
 	vertexCount++;
 }
 if (vertexCount != numNodes) { /* Graph is not connected */ }

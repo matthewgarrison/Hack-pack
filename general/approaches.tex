@@ -1,7 +1,5 @@
 \startsection{Approaches and checklist}
 
-Using a TreeSet instead of a PriorityQueue gets you a O(log$(n)$) \lstinline{.remove()}. The object you're inserting needs to break ties (use something consistent, though it can be arbitrary, like the index), since TreeSet uses \lstinline{.compareTo()} to check for repeated values, not \lstinline{.equals()}.
-
 \textbf{Checklist of stupid mistakes}
 
 \indent BitSets allocate memory as-needed, so be careful when using \inline{.size()} for \inline{.get(fromIdx, toIdx)}. \\
